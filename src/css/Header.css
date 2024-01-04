@@ -1,0 +1,4 @@
+.header__logo {
+    font-family: 'Krona One', sans-serif;
+    @apply p-4
+}
