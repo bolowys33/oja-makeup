@@ -17,7 +17,7 @@ const Footer = () => {
             <BrandLink classes={'text-yellow'}/>
             <div className="link">
                 {links.map(link => (
-                    <Link to="/" className="ml-4">{link}</Link>
+                    <Link key={link} to="/" className="ml-4">{link}</Link>
                 ))}
             </div>
         </footer>
