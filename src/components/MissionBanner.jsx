@@ -3,8 +3,8 @@ import bannerImg from "../assets/cream.png";
 const MissionBanner = () => {
     return (
         <div className="bg-light-grey mb-10">
-            <div className="flex pt-56 pb-12 items-center container mx-auto">
-                <img className="mr-4 py-4" src={bannerImg} alt="Cream and weed" />
+            <div className="flex flex-col md:flex-row pt-56 pb-12 items-center container mx-auto">
+                <img className="mr-0 md:mr-4 py-4 mb-4 md:mb-0" src={bannerImg} alt="Cream and weed" />
                 <div>
                     <h2 className="font-krona text-3xl mb-4">Clean code that you deserve</h2>
                     <p className="text-sm mb-2">

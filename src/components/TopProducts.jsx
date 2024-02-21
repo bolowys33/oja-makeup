@@ -12,7 +12,7 @@ const TopProducts = () => {
             <div className="container mx-auto">
                 <div className="flex justify-between items-center mb-6">
                     <SectionTitle name={"Top products"} />
-                    <SectionLink path="/about" name="see more" isMain />
+                    <SectionLink path="/about" name="see more" isMain className="hidden md:block" />
                 </div>
                 <div className="flex flex-wrap justify-center w-[80%] mx-auto">
                     {topProducts.slice(0 , 8).map(product => (

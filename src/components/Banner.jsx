@@ -4,7 +4,7 @@ import SectionLink from "./SectionLink";
 
 const Banner = () => {
     return (
-        <div className="flex items-center mt-12 container mx-auto mb-8">
+        <div className="flex flex-col-reverse md:flex-row items-center mt-2 md:mt-12 container mx-auto mb-8">
             <div>
                 <h1 className="font-krona text-3xl mb-4">
                     The React project with API implemented using Axios, Tailwind
@@ -19,7 +19,7 @@ const Banner = () => {
                 <SectionLink path="/about" name="see more" isMain />
             </div>
             <img
-                className=""
+                className="ml-0 md:ml-4 mb-4 md:mb-0"
                 src={bannerImg}
                 alt="Tooth brush and paste laying on top of a green leaf"
             />

@@ -1,5 +1,4 @@
-import { DeliveryDining, Inventory, InventoryOutlined, PaymentsOutlined } from "@mui/icons-material";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import { DeliveryDining, InventoryOutlined, PaymentsOutlined } from "@mui/icons-material";
 
 const BenefitItem = ({ item }) => {
     return (
@@ -13,7 +12,7 @@ const BenefitItem = ({ item }) => {
             </div>
             <div>
                 <h5 className="font-krona text-sm">{item.title}</h5>
-                <p className="text-sm">{item.text}</p>
+                <p className="text-sm text-justify md:text-left">{item.text}</p>
             </div>
         </div>
     );

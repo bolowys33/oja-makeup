@@ -17,7 +17,7 @@ const items = [
 
 const Benefit = () => {
     return ( 
-        <div className="flex container mx-auto mb-10">
+        <div className="container mx-auto flex flex-col md:flex-row mb-20 md:space-x-8 space-y-8 md:space-y-0 sm:w-3/4 md:w-full">
             {items.map(item => (
                 <BenefitItem key={item.title} item={item} />
             ))}
