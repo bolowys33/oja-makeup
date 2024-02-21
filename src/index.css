@@ -4,8 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Poppins&display=swap');
 
-
 body {
   font-family: 'Poppins', sans-serif;
-  @apply text-darkooo bg-light-grey
+  @apply text-darkooo
 }

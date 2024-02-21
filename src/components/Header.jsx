@@ -1,7 +1,6 @@
-import { Favorite, ShoppingBag, ShoppingCart } from "@mui/icons-material";
+import { Favorite, ShoppingCart } from "@mui/icons-material";
 import "../css/Header.css";
 import BrandLink from "./BrandLink";
-import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
 const Header = () => {
