@@ -2,9 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Poppins&display=swap");
 
 body {
-  font-family: 'Poppins', sans-serif;
-  @apply text-darkooo
+    font-family: "Poppins", sans-serif;
+    @apply text-darkooo;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "sidebar topbar"
+        "sidebar main";
+}
+
+.product .sidebar {
+    grid-area: sidebar;
+}
+
+.product .topbar {
+    grid-area: topbar;
+}
+
+.product .main-content {
+    grid-area: main;
 }
