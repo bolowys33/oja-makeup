@@ -4,8 +4,11 @@ import { useState } from "react";
 const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
 function useGetRecommendedProducts() {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
+    const [isPending, setIsPending] = useState(false)
+
 
     const getRecommendedProducts = (product) => {
+        setIsPending(true)
         const key = product.product_type ? "product_type" : "brand";
         const value = product.product_type
             ? product.product_type
@@ -26,11 +29,11 @@ function useGetRecommendedProducts() {
                 }
                 const slicedData = res.data.slice(startIndex, startIndex + 4);
                 setRecommendedProducts(slicedData);
-                console.log(recommendedProducts);
+                setIsPending(false)
             });
     };
 
-    return { recommendedProducts, getRecommendedProducts };
+    return { recommendedProducts, getRecommendedProducts, isPending };
 }
 
 export default useGetRecommendedProducts;

@@ -29,31 +29,34 @@ const PRODUCT_TAGS = [
 ];
 
 const getRandomTag = () => {
-    const randomNum = Math.floor(Math.random() * PRODUCT_TAGS.length)
+    const randomNum = Math.floor(Math.random() * PRODUCT_TAGS.length);
 
-    return PRODUCT_TAGS[randomNum]
-}
+    return PRODUCT_TAGS[randomNum];
+};
 
 function useGetTopProducts() {
     const [topProducts, setTopProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const getTopProducts = () => {
-        console.log('me');
+        setIsLoading(true);
         axios
             .get(`${BASE_URL}.json`, {
                 params: {
                     product_tags: getRandomTag(),
                 },
             })
-            .then((res) => setTopProducts(res.data));
+            .then((res) => {
+                setTopProducts(res.data);
+                setIsLoading(false);
+            });
     };
 
     useEffect(() => {
         getTopProducts();
-        console.log('useEffect triggered');
     }, []);
 
-    return topProducts;
+    return { topProducts, isLoading };
 }
 
 export default useGetTopProducts;
