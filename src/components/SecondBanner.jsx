@@ -13,7 +13,7 @@ const SecondBanner = () => {
             </div>
             <img
                 className="py-8"
-                width={400}
+                width={200}
                 src={bannerImg}
                 alt="Tooth brush and paste laying on top of a green leaf"
             />

@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <Link
-            to={`/product/${product.id}`}
+            to={`/products/${product.id}`}
             title={product.name}
             onClick={handleClick}
             className="flex flex-col justify-between align-middle rounded-md mb-6 mr-6 px-6 py-6 transform hover:scale-105 hover:shadow-xl transition delay-75 duration-300 ease-in-out">

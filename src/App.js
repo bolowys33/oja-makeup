@@ -3,8 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Search from "./components/Search";
 import ProductDesc from "./pages/ProductDesc";
+import Products from "./pages/Products";
 
 function App() {
     return (
@@ -17,8 +17,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/product/:id" element={<ProductDesc />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/products/:id" element={<ProductDesc />} />
             </Routes>
 
             <Footer />
