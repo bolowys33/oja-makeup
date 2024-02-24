@@ -8,7 +8,7 @@ import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 
 const Footer = () => (
     <footer className="bg-darkooo text-light flex flex-col md:flex-row justify-between p-8">
-        <BrandLink classes="text-yellow mb-4 md:mb-0 md:pl-4 inline-block order-1" />
+        <BrandLink scroll classes="text-yellow mb-4 md:mb-0 md:pl-4 inline-block order-1" />
 
         <div className="flex flex-col md:flex-row justify-between md:mx-auto space-x-0 md:space-x-8 space-y-8 md:space-y-0 order-3 md:order-2">
             {links.map((item) => (
