@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { CATEGORIES } from "../constants/categories";
 
-const Categories = () => {
+const Categories = ({ setFilter }) => {
+    const [activeCat, setActiveCat] = useState(null);
+
+    const setCategory = (e) => {
+        const value = e.target.innerText;
+
+        setFilter("product_type", e.target.innerText);
+        setActiveCat(value);
+    };
     return (
         <>
             {CATEGORIES.map((cat) => (
@@ -10,7 +19,12 @@ const Categories = () => {
                         {cat.subCategories.map((subCat) => (
                             <li
                                 key={subCat}
-                                className={`cursor-pointer hover:text-yellow font-medium`}>
+                                onClick={setCategory}
+                                className={`cursor-pointer hover:text-yellow ${
+                                    activeCat === subCat
+                                        ? "text-yellow font-medium"
+                                        : ""
+                                }`}>
                                 {subCat}
                             </li>
                         ))}
