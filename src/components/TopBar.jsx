@@ -2,13 +2,22 @@ import { BRANDS } from "../constants/brands";
 import { SORTS } from "../constants/sorts";
 import Dropdown from "./Dropdown";
 
-const TopBar = () => {
-    return ( 
+const TopBar = ({ setFilter }) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFilter(name, value);
+    };
+
+    return (
         <div className="flex space-x-4">
-            <Dropdown type='brands' values={BRANDS}  />
-            <Dropdown type='sorts' values={SORTS}  />
+            <Dropdown
+                type="brand"
+                values={["all", ...BRANDS]}
+                onChange={handleChange}
+            />
+            <Dropdown type="sorts" values={SORTS} onChange={handleChange} />
         </div>
-     );
-}
- 
+    );
+};
+
 export default TopBar;
