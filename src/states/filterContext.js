@@ -17,8 +17,6 @@ const FilterProvider = ({ children }) => {
 
 const useFilterState = () => {
     const context = useContext(FilterContext)
-    console.log(context);
-
     return context
 }
 

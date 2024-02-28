@@ -5,7 +5,8 @@ import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 
 const ProductContent = () => {
-    const { products, setFilter, isLoading } = useGetProducts();
+
+    const {setFilter} = useGetProducts()
 
     return ( 
         <div className="product">
@@ -16,10 +17,7 @@ const ProductContent = () => {
                         <TopBar setFilter={setFilter} />
                     </div>
                     <div className="main-content">
-                        <MainContent
-                            products={products}
-                            isLoading={isLoading}
-                        />
+                        <MainContent />
                     </div>
                 </div>
      );
