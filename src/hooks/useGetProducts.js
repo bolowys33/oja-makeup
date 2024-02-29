@@ -1,40 +1,39 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { useFilterState } from "../states/filterContext";
+import { setProducts } from "../states/actionCreators";
 
 const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
 
-
 function useGetProducts() {
-    const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [state, dispatch] = useFilterState();
 
     const getProducts = (params) => {
-        
-
         setIsLoading(true);
+        dispatch(setProducts([]));
         axios
             .get(`${BASE_URL}.json`, {
-                params
+                params,
             })
             .then((res) => {
-                setProducts(res.data);
+                dispatch(setProducts(res.data));
                 setIsLoading(false);
             });
     };
 
     const setFilter = (type, value) => {
         const params = {
-            [type]: value
-        }
+            [type]: value,
+        };
         getProducts(params);
-    }
+    };
 
     useEffect(() => {
         getProducts();
     }, []);
 
-    return { products, setFilter, isLoading };
+    return { setFilter, isLoading };
 }
 
 export default useGetProducts;
