@@ -12,18 +12,13 @@ body {
 .product {
     display: grid;
     grid-template-columns: 250px auto;
-    grid-template-rows: auto;
     grid-template-areas:
-        "sidebar topbar"
+        "sidebar main"
         "sidebar main";
 }
 
 .product .sidebar {
     grid-area: sidebar;
-}
-
-.product .topbar {
-    grid-area: topbar;
 }
 
 .product .main-content {
