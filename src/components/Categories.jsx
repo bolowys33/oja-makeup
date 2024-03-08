@@ -6,7 +6,7 @@ const Categories = ({ onSelect }) => {
 
     const setCategory = (e) => {
         const value = e.target.innerText;
-
+        
         onSelect(value);
         setActiveCat(value);
     };
