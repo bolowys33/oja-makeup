@@ -1,26 +1,34 @@
+import { ScaleLoader } from "react-spinners";
 import useGetProducts from "../hooks/useGetProducts";
 
 import MainContent from "./MainContent";
 import SideBar from "./SideBar";
-import TopBar from "./TopBar";
 
 const ProductContent = () => {
+    const { isLoading } = useGetProducts();
 
-    const {setFilter} = useGetProducts()
-
-    return ( 
+    return (
         <div className="product">
-                    <div className="sidebar">
-                        <SideBar setFilter={setFilter} />
+            <div className="sidebar">
+                <SideBar />
+            </div>
+            <div className="main">
+                {isLoading ? (
+                    <div className="flex items-center justify-center h-[500px]">
+                        <ScaleLoader
+                            color="rgb(255,201,75)"
+                            margin={7}
+                            radius={6}
+                            width={10}
+                            height={100}
+                        />
                     </div>
-                    <div className="top">
-                        <TopBar setFilter={setFilter} />
-                    </div>
-                    <div className="main-content">
-                        <MainContent />
-                    </div>
-                </div>
-     );
-}
- 
+                ) : (
+                    <MainContent />
+                )}
+            </div>
+        </div>
+    );
+};
+
 export default ProductContent;

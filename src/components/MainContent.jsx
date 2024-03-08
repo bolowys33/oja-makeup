@@ -9,13 +9,10 @@ const MainContent = () => {
         <div>
             {products.length === 0 ? (
                 <div className="flex items-center justify-center h-[300px]">
-                    <ScaleLoader
-                        color="rgb(255,201,75)"
-                        margin={7}
-                        radius={6}
-                        width={10}
-                        height={100}
-                    />
+                <div className="text-center mt-8">
+                    <h4 className="font-krona">Sorry, no products</h4>
+                    <p>Please try changing your filters</p>
+                </div>
                 </div>
             ) : (
                 <div className="flex flex-wrap justify-center mx-auto">
