@@ -4,7 +4,7 @@ const Dropdown = ({ values, onChange }) => {
     return (
         <div className="flex flex-col p-2">
             <label htmlFor='brand' className="font-bold mb-2 font-krona text-sm">
-                {type}
+                brand
             </label>
             <select
                 name='brand'
