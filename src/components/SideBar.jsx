@@ -18,13 +18,15 @@ const SideBar = () => {
     };
 
     const handleSelect = (value) => {
+        if (value === 'all in brand') value = null
+
         dispatch(setFilter("productType", value));
     };
 
     return (
         <>
             <div className="pl-6">
-                <PriceRange />
+                <PriceRange onChange={handleChange} />
                 <Dropdown values={["all", ...BRANDS]} onChange={handleChange} />
                 <div className="bg-gray-200 px-6 py-2 mb-4 text-sm">
                     <Categories onSelect={handleSelect} />

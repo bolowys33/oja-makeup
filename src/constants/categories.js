@@ -1,5 +1,9 @@
 export const CATEGORIES = [
     {
+        name: 'all',
+        subCategories: ['all in brand'],
+    },
+    {
         name: 'skin',
         subCategories: ['foundation', 'blush', 'bronzer'],
     },
