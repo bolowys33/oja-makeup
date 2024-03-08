@@ -7,29 +7,25 @@ import Dropdown from "./Dropdown";
 import { useFilterState } from "../states/filterContext";
 
 const SideBar = () => {
-
     const [, dispatch] = useFilterState();
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         let { name, value } = e.target;
-
-        if(value === 'all') value = null
+        
+        if (name === "brand" && value === "all") value = null;
 
         dispatch(setFilter(name, value));
     };
 
-    const handleSelect = value => {
-        dispatch(setFilter('productType', value));
+    const handleSelect = (value) => {
+        dispatch(setFilter("productType", value));
     };
 
     return (
         <>
             <div className="pl-6">
                 <PriceRange />
-                <Dropdown
-                    values={["all", ...BRANDS]}
-                    onChange={handleChange}
-                />
+                <Dropdown values={["all", ...BRANDS]} onChange={handleChange} />
                 <div className="bg-gray-200 px-6 py-2 mb-4 text-sm">
                     <Categories onSelect={handleSelect} />
                 </div>
