@@ -20,6 +20,7 @@ function useGetProducts() {
     const getProducts = () => {
         setIsLoading(true);
         dispatch(setProducts([]));
+
         axios
             .get(`${BASE_URL}.json`, {
                 params,

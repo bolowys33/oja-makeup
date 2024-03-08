@@ -11,7 +11,10 @@ const SideBar = () => {
     const [, dispatch] = useFilterState();
 
     const handleChange = e => {
-        const { name, value } = e.target;
+        let { name, value } = e.target;
+
+        if(value === 'all') value = null
+
         dispatch(setFilter(name, value));
     };
 
