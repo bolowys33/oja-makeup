@@ -9,14 +9,15 @@ function useGetProducts() {
     const [isLoading, setIsLoading] = useState(false);
     const [state, dispatch] = useFilterState();
 
+    const priceGreaterThan = state.filters.minPrice !== null ? +state.filters.minPrice - 0.1 : null;
+    const priceLessThan = state.filters.maxPrice !== null ? +state.filters.maxPrice + 0.1 : null;
+
     const params = {
         product_type: state.filters.productType,
         brand: state.filters.brand,
-        price_greater_than: +state.filters.minPrice - .1,
-        price_less_than: +state.filters.maxPrice + .1,
+        price_greater_than: priceGreaterThan,
+        price_less_than: priceLessThan,
     };
-
-    console.log( typeof(params.price_less_than));
 
     const getProducts = () => {
         setIsLoading(true);
@@ -37,7 +38,7 @@ function useGetProducts() {
         getProducts();
     }, [state.filters]);
 
-    return {isLoading} ;
+    return { isLoading };
 }
 
 export default useGetProducts;
