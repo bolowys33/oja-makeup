@@ -9,7 +9,15 @@ function useGetProducts() {
     const [isLoading, setIsLoading] = useState(false);
     const [state, dispatch] = useFilterState();
 
-    const getProducts = (params) => {
+    const params = {
+        product_type: state.filters.productType,
+        brand: state.filters.brand
+    };
+
+    console.log("Filters", state.filters);
+
+
+    const getProducts = () => {
         setIsLoading(true);
         dispatch(setProducts([]));
         axios
@@ -22,18 +30,12 @@ function useGetProducts() {
             });
     };
 
-    const setFilter = (type, value) => {
-        const params = {
-            [type]: value,
-        };
-        getProducts(params);
-    };
-
     useEffect(() => {
+        console.log("Effect triggered", state.filters);
         getProducts();
-    }, []);
+    }, [state.filters]);
 
-    return { setFilter, isLoading };
+    return {isLoading} ;
 }
 
 export default useGetProducts;

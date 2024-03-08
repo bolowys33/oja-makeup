@@ -45,12 +45,13 @@ const ProductDesc = () => {
     return (
         <div className="container mx-auto mb-10">
             {isLoading ? (
-                <div className="flex items-center justify-center h-screen">
+                <div className="flex items-center justify-center">
                     <ScaleLoader
                         color="rgb(255,201,75)"
-                        margin={7}
-                        radius={6}
-                        width={15}
+                            margin={7}
+                            radius={6}
+                            width={10}
+                            height={100}
                     />
                 </div>
             ) : (
