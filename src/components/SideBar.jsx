@@ -27,7 +27,6 @@ const SideBar = () => {
             <div className="pl-6">
                 <PriceRange />
                 <Dropdown
-                    type="brand"
                     values={["all", ...BRANDS]}
                     onChange={handleChange}
                 />
