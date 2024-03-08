@@ -12,9 +12,11 @@ function useGetProducts() {
     const params = {
         product_type: state.filters.productType,
         brand: state.filters.brand,
-        price_greater_than: state.filters.minPrice,
-        price_less_than: state.filters.maxPrice,
+        price_greater_than: +state.filters.minPrice - .1,
+        price_less_than: +state.filters.maxPrice + .1,
     };
+
+    console.log( typeof(params.price_less_than));
 
     const getProducts = () => {
         setIsLoading(true);
