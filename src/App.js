@@ -5,14 +5,19 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ProductDesc from "./pages/ProductDesc";
 import Products from "./pages/Products";
+import { Provider } from "react-redux";
+import store from "./redux/cartStore";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <>
+            <Provider store={store}>
             <div className="">
                 <Header />
             </div>
-
+            <ToastContainer />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -22,6 +27,7 @@ function App() {
             </Routes>
 
             <Footer />
+            </Provider>
         </>
     );
 }
