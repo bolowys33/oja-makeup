@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import ProductPrice from "./ProductPrice";
 
 const ProductCard = ({ product }) => {
-
     const handleClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      };
-
+    };
 
     return (
         <Link
@@ -23,7 +21,9 @@ const ProductCard = ({ product }) => {
                 />
             </div>
             <div className="w-[11.2rem]">
-                <p className="text-yellow font-krona text-xs truncate">{product.name}</p>
+                <p className="text-yellow font-krona text-xs truncate">
+                    {product.name}
+                </p>
                 <p>{product.brand}</p>
                 <ProductPrice price={product.price} />
             </div>

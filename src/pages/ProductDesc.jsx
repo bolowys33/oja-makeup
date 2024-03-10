@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useGetSingleProduct from "../hooks/useGetSingleProduct";
 import { useEffect } from "react";
 import ProductTitle from "../components/ProductTitle";
@@ -28,7 +28,6 @@ const ProductDesc = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [singleProduct]);
 
-    
     if (!singleProduct) {
         return (
             <div className="flex items-center justify-center h-screen">
@@ -48,10 +47,10 @@ const ProductDesc = () => {
                 <div className="flex items-center justify-center">
                     <ScaleLoader
                         color="rgb(255,201,75)"
-                            margin={7}
-                            radius={6}
-                            width={10}
-                            height={100}
+                        margin={7}
+                        radius={6}
+                        width={10}
+                        height={100}
                     />
                 </div>
             ) : (
@@ -63,7 +62,10 @@ const ProductDesc = () => {
 
                     <ProductPreview product={singleProduct} />
                     <Benefit />
-                    <RecommendedProducts products={recommendedProducts} pending={isPending} />
+                    <RecommendedProducts
+                        products={recommendedProducts}
+                        pending={isPending}
+                    />
                 </div>
             )}
         </div>
