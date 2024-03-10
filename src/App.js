@@ -6,29 +6,29 @@ import About from "./pages/About";
 import ProductDesc from "./pages/ProductDesc";
 import Products from "./pages/Products";
 import { Provider } from "react-redux";
-import store from "./redux/cartStore";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import store, { persistor } from "./redux/cartStore";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
     return (
-        <>
-            <Provider store={store}>
-            <div className="">
-                <Header />
-            </div>
-            <ToastContainer />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDesc />} />
-            </Routes>
-
-            <Footer />
-            </Provider>
-        </>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <div className="">
+                    <Header />
+                </div>
+                <ToastContainer />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/products/:id" element={<ProductDesc />} />
+                </Routes>
+                <Footer />
+            </PersistGate>
+        </Provider>
     );
 }
 
