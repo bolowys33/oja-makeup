@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProductPrice from "./ProductPrice";
 import { AddShoppingCart } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { itemAdded } from "../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { calcTotal, itemAdded } from "../redux/cartSlice";
 
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();
@@ -13,10 +13,19 @@ const ProductCard = ({ product }) => {
         navigate(`/products/${product.id}`);
     };
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const state = useSelector((state) => state.cart);
+
+
+    const payload = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+    };
 
     const handleAddToCart = () => {
-        dispatch(itemAdded(product));
+        dispatch(itemAdded(payload));
+        dispatch(calcTotal(state))
     };
 
     return (
