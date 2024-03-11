@@ -13,19 +13,23 @@ const StyledBadge = styled(Badge)(() => ({
     },
 }));
 
+const handleClick = () => {
+  console.log(`yesssssssss`)
+}
+
 const Header = () => {
     const { items } = useSelector((state) => state.cart);
     const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
-        <div className="container mx-auto">
-            <header className="flex justify-between font-krona py-3 items-center">
+        <div className="sticky__2">
+            <header className="container mx-auto flex justify-between font-krona py-3 items-center">
                 <BrandLink />
                 <div className="flex items-end">
                     <NavLinks />
-                    <div className="flex text-darkooo">
+                    <div className="flex text-darkooo cursor-pointer">
                         <Favorite className="mr-4" />
-                        <StyledBadge badgeContent={totalItems}>
+                        <StyledBadge onClick={handleClick} badgeContent={totalItems}>
                             <ShoppingCart />
                         </StyledBadge>
                     </div>

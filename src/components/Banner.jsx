@@ -4,7 +4,7 @@ import SectionLink from "./SectionLink";
 
 const Banner = () => {
     return (
-        <div className="flex flex-col-reverse md:flex-row items-center mt-2 md:mt-12 container mx-auto mb-8">
+        <div className="flex flex-col-reverse md:flex-row items-center mt-16 md:mt-20 container mx-auto mb-8">
             <div>
                 <h1 className="font-krona text-3xl mb-4">
                     The React project with API implemented using Axios, Tailwind

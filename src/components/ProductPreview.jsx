@@ -1,15 +1,23 @@
-import { useDispatch } from "react-redux";
-import CartButton from "./CartButton";
+import { useDispatch, useSelector } from "react-redux";
 import ProductPrice from "./ProductPrice";
-import { itemAdded } from "../redux/cartSlice";
+import { calcTotal, itemAdded } from "../redux/cartSlice";
 
 const ProductPreview = ({product}) => {
 
     const dispatch = useDispatch()
+    const state = useSelector((state) => state.cart);
+
+
+    const payload = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+    };
 
     const handleAddToCart = () => {
-        dispatch(itemAdded(product));
-      };
+        dispatch(itemAdded(payload));
+        dispatch(calcTotal(state))
+    };
     return ( 
         <div className="flex flex-col lg:flex-row justify-center items-center mb-32">
                 <div className="flex justify-center items-center w-3/4 sm:w-2/4 md:w-1/4 lg:w-full lg:mr-10">
@@ -31,7 +39,6 @@ const ProductPreview = ({product}) => {
 
                     <div className="flex my-5 justify-between items-center">
                         <ProductPrice price={product.price} isLarge />
-                        <CartButton />
                         <div>
                             <button className="inline-block rounded-full text-sm font-bold font-krona bg-yellow py-3 px-6"
                             onClick={handleAddToCart}>
