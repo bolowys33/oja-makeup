@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import CartButton from "./CartButton";
 import ProductPrice from "./ProductPrice";
 import { itemAdded } from "../redux/cartSlice";
 
@@ -31,7 +30,6 @@ const ProductPreview = ({product}) => {
 
                     <div className="flex my-5 justify-between items-center">
                         <ProductPrice price={product.price} isLarge />
-                        <CartButton />
                         <div>
                             <button className="inline-block rounded-full text-sm font-bold font-krona bg-yellow py-3 px-6"
                             onClick={handleAddToCart}>
