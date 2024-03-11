@@ -42,8 +42,8 @@ const ProductCard = ({ product }) => {
                 <p>{product.brand}</p>
                 <div className="flex items-center justify-between">
                     <ProductPrice price={product.price} />
-                    <IconButton color="default" onClick={handleAddToCart}>
-                        <AddShoppingCart />
+                    <IconButton onClick={handleAddToCart}>
+                        <AddShoppingCart className="text-darkooo" />
                     </IconButton>
                 </div>
             </div>
