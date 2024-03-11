@@ -2,3 +2,12 @@
     font-family: 'Krona One', sans-serif;
     @apply p-4
 }
+
+.sticky__2 {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    /* margin-bottom: 20px; */
+}
