@@ -45,7 +45,7 @@ const cartSlice = createSlice({
     },
     calcTotal(state) {
       state.total = Intl.NumberFormat("en-US", {
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 0,
       }).format(calculateTotal(state.items));
     },
     clearAll(state) {

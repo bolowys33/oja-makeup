@@ -5,7 +5,7 @@ import Facts from "../components/Facts";
 const About = () => {
     return (
         <>
-            <div className="flex items-center">
+            <div className="flex items-center mt-16 md:mt-20">
                 <div className="relative my-20 mx-auto">
                     <div className="absolute bg-yellow h-14 w-14 rounded-full -z-10"></div>
                     <BrandLink classes="text-6xl ml-4" />
