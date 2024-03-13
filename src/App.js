@@ -10,6 +10,7 @@ import store, { persistor } from "./redux/cartStore";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
+import Cart from "./pages/Cart";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDesc />} />
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
                 <Footer />
             </PersistGate>

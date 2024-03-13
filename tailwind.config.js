@@ -13,6 +13,7 @@ module.exports = {
                 "dark-grey": "#B8B8B8",
                 "light-grey": "#F8F8F8",
                 light: "#FAFAFA",
+                "dark-yellow": "#deb350"
             },
         },
         container: {

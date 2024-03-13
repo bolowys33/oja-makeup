@@ -7,25 +7,27 @@ import { calcTotal, itemAdded } from "../redux/cartSlice";
 
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const price = Math.ceil(parseFloat(product.price))
 
     const handleClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate(`/products/${product.id}`);
     };
 
-    const dispatch = useDispatch()
-    const state = useSelector((state) => state.cart);
-
+   
 
     const payload = {
         id: product.id,
         name: product.name,
-        price: product.price,
+        image: `https://${product.api_featured_image}`,
+        price
     };
 
     const handleAddToCart = () => {
         dispatch(itemAdded(payload));
-        dispatch(calcTotal(state))
+        dispatch(calcTotal());
     };
 
     return (
@@ -50,7 +52,7 @@ const ProductCard = ({ product }) => {
                 </p>
                 <p>{product.brand}</p>
                 <div className="flex items-center justify-between">
-                    <ProductPrice price={product.price} />
+                    <ProductPrice price={price} />
                     <IconButton onClick={handleAddToCart}>
                         <AddShoppingCart className="text-darkooo" />
                     </IconButton>

@@ -42,7 +42,7 @@ const ProductDesc = () => {
     }
 
     return (
-        <div className="container mx-auto mb-10">
+        <div className="container mx-auto mb-10 mt-16 md:mt-20">
             {isLoading ? (
                 <div className="flex items-center justify-center">
                     <ScaleLoader

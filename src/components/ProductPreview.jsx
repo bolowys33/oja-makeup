@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import ProductPrice from "./ProductPrice";
 import { calcTotal, itemAdded } from "../redux/cartSlice";
+import { AddShoppingCartRounded } from "@mui/icons-material";
 
 const ProductPreview = ({product}) => {
 
     const dispatch = useDispatch()
     const state = useSelector((state) => state.cart);
-
+    
+    const price = Math.ceil(parseFloat(product.price))
 
     const payload = {
         id: product.id,
         name: product.name,
-        price: product.price,
+        image: `https://${product.api_featured_image}`,
+        price,
     };
 
     const handleAddToCart = () => {
@@ -38,11 +41,11 @@ const ProductPreview = ({product}) => {
                     <p>{product.category}</p>
 
                     <div className="flex my-5 justify-between items-center">
-                        <ProductPrice price={product.price} isLarge />
+                        <ProductPrice price={price} isLarge />
                         <div>
                             <button className="inline-block rounded-full text-sm font-bold font-krona bg-yellow py-3 px-6"
                             onClick={handleAddToCart}>
-                                add to cart
+                                <AddShoppingCartRounded /> add to cart
                             </button>
                         </div>
                     </div>
