@@ -1,9 +1,17 @@
 import { RemoveShoppingCartRounded } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { itemDecreased, itemIncreased, itemRemoved } from "../redux/cartSlice";
+import { useState } from "react";
+import {
+    calcTotal,
+    itemDecreased,
+    itemIncreased,
+    itemRemoved,
+} from "../redux/cartSlice";
+import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 
 const CartButton = ({ item }) => {
     const dispatch = useDispatch();
+    const [openDialog, setOpenDialog] = useState(false);
 
     const handleIncrease = () => {
         dispatch(itemIncreased(item.id));
@@ -14,7 +22,17 @@ const CartButton = ({ item }) => {
     };
 
     const handleRemove = () => {
+        setOpenDialog(true);
+    };
+
+    const handleRemoveConfirmed = () => {
         dispatch(itemRemoved(item.id));
+        dispatch(calcTotal())
+        setOpenDialog(false);
+    };
+
+    const handleCancelRemove = () => {
+        setOpenDialog(false);
     };
 
     return (
@@ -42,6 +60,21 @@ const CartButton = ({ item }) => {
                     +
                 </button>
             </div>
+            <Dialog
+                open={openDialog}
+                onClose={handleCancelRemove}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description">
+                <DialogTitle id="alert-dialog-title">
+                    {"Do you really want to remove item?"}
+                </DialogTitle>
+                <DialogActions>
+                    <Button onClick={handleCancelRemove}>Cancel</Button>
+                    <Button onClick={handleRemoveConfirmed} autoFocus>
+                        Remove
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 };
