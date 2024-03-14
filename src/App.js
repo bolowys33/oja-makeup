@@ -19,7 +19,11 @@ function App() {
                 <div className="">
                     <Header />
                 </div>
-                <ToastContainer />
+                <ToastContainer
+                    style={{
+                       top: '60px'
+                    }}
+                />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
