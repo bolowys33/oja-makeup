@@ -30,8 +30,8 @@ const EmptyCart = () => {
                     </p>
                     <button
                         onClick={handleClick}
-                        className="bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-400 mt-4">
-                        Continue Shopping
+                        className="bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-400 mt-4 uppercase">
+                        Start Shopping
                     </button>
                 </div>
             </div>
