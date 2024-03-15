@@ -19,7 +19,7 @@ const Summary = () => {
                     <span>Total</span> <span>&#8358; {total}</span>
                 </p>
                 <button
-             className="rounded-full text-lg font-extrabold bg-yellow py-2 px-10 justify-self-center">
+             className="rounded-full text-sm font-bold font-krona uppercase bg-yellow py-3 px-10 justify-self-center shadow-lg hover:bg-dark-yellow">
                     Checkout ({items.length})
                 </button>
             </div>

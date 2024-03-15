@@ -32,7 +32,7 @@ const CartItemBox = () => {
             <CartItem />
             <button
                 onClick={handleClick}
-                className="p-2 h-12 mt-5 text-white flex items-center font-krona bg-red-700 rounded-md shadow-lg text-xs mx-auto">
+                className="p-2 h-12 mt-5 text-white flex items-center font-krona bg-red-700 hover:bg-red-900 rounded-md shadow-lg text-xs mx-auto">
                 <Delete /> EMPTY CART
             </button>
             <Dialog

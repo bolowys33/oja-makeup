@@ -39,7 +39,7 @@ const CartButton = ({ item }) => {
         <div className="flex justify-between items-center p-4">
             <button
                 onClick={handleRemove}
-                className="p-2 h-8 text-white flex items-center bg-red-700 rounded-md shadow-lg text-xs">
+                className="p-2 h-8 text-white flex items-center bg-red-700 hover:bg-red-900 rounded-md shadow-lg text-xs">
                 <RemoveShoppingCartRounded /> REMOVE
             </button>
             <div className="font-krona">
