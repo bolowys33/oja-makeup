@@ -1,6 +1,6 @@
 import { Delete } from "@mui/icons-material";
 import CartItem from "./CartItem";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { calcTotal, clearAll } from "../redux/cartSlice";
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { useState } from "react";
 const CartItemBox = () => {
     const dispatch = useDispatch();
     const [openDialog, setOpenDialog] = useState(false);
+    const { items } = useSelector((state) => state.cart);
 
     const handleClick = () => {
         setOpenDialog(true);
@@ -24,7 +25,10 @@ const CartItemBox = () => {
     };
 
     return (
-        <div className="col-span-12 md:col-span-7 mb-6">
+        <div className="col-span-12 md:col-span-8 bg-white rounded-lg shadow-md py-6 px-2">
+            <h3 className="font-krona text-xl md:text-2xl text-center">
+                        Cart({items.length})
+                    </h3>
             <CartItem />
             <button
                 onClick={handleClick}
