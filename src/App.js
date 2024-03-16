@@ -11,6 +11,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
 import Cart from "./pages/Cart";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SIgnIn";
 
 function App() {
     return (
@@ -19,7 +21,11 @@ function App() {
                 <div className="">
                     <Header />
                 </div>
-                <ToastContainer />
+                <ToastContainer
+                    style={{
+                       top: '60px'
+                    }}
+                />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
@@ -27,6 +33,8 @@ function App() {
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDesc />} />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/register" element={<SignUp />} />
+                    <Route path="/login" element={<SignIn />} />
                 </Routes>
                 <Footer />
             </PersistGate>

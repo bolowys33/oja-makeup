@@ -43,7 +43,7 @@ const ProductPreview = ({product}) => {
                     <div className="flex my-5 justify-between items-center">
                         <ProductPrice price={price} isLarge />
                         <div>
-                            <button className="inline-block rounded-full text-sm font-bold font-krona bg-yellow py-3 px-6"
+                            <button className="inline-block rounded-full text-sm font-bold font-krona bg-yellow hover:bg-dark-yellow py-3 px-6"
                             onClick={handleAddToCart}>
                                 <AddShoppingCartRounded /> add to cart
                             </button>
