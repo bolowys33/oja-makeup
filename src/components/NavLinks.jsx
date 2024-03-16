@@ -13,6 +13,10 @@ const links = [
         path: `/about`,
         name: "About",
     },
+    {
+        path: `/register`,
+        name: "Sign-up",
+    },
 ];
 
 const NavLinks = () => {
