@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import app from "../firebase/auth";
 import {
     GoogleAuthProvider,
+    browserSessionPersistence,
     createUserWithEmailAndPassword,
     getAuth,
     sendEmailVerification,
+    setPersistence,
     signInWithPopup,
 } from "firebase/auth";
 import {
@@ -83,6 +85,7 @@ const SignUp = () => {
     const handleGoogleSignUp = async () => {
         const provider = new GoogleAuthProvider();
         try {
+            await setPersistence(auth, browserSessionPersistence)
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import app from "../firebase/auth";
 import {
     GoogleAuthProvider,
+    browserSessionPersistence,
     createUserWithEmailAndPassword,
     getAuth,
+    setPersistence,
     signInWithEmailAndPassword,
     signInWithPopup,
 } from "firebase/auth";
@@ -16,14 +18,18 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
 
 const SignIn = () => {
+    const navigate = useNavigate()
+
     const auth = getAuth(app);
+    
+
     const firestore = getFirestore(app);
 
     const [email, setEmail] = useState("");
@@ -43,14 +49,16 @@ const SignIn = () => {
         setIsLoading(true);
 
         try {
-
+            await setPersistence(auth, browserSessionPersistence)
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
+            
             const user = userCredential.user;
-
+            
+            navigate("/")
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));
@@ -61,6 +69,7 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         try {
+            await setPersistence(auth, browserSessionPersistence)
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
