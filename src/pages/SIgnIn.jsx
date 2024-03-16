@@ -4,6 +4,7 @@ import {
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
     getAuth,
+    signInWithEmailAndPassword,
     signInWithPopup,
 } from "firebase/auth";
 import {
@@ -43,7 +44,7 @@ const SignIn = () => {
 
         try {
 
-            const userCredential = await createUserWithEmailAndPassword(
+            const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password

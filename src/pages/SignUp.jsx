@@ -4,6 +4,7 @@ import {
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
     getAuth,
+    sendEmailVerification,
     signInWithPopup,
 } from "firebase/auth";
 import {
@@ -62,6 +63,8 @@ const SignUp = () => {
                 password
             );
             const user = userCredential.user;
+
+            await sendEmailVerification(user);
 
             // Save the user's name to Firestore
             await setDoc(doc(firestore, "users", user.uid), {
