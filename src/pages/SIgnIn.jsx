@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import app from "../firebase/auth";
 import {
     GoogleAuthProvider,
-    createUserWithEmailAndPassword,
+    browserSessionPersistence,
     getAuth,
+    setPersistence,
+    signInWithEmailAndPassword,
     signInWithPopup,
 } from "firebase/auth";
 import {
@@ -15,13 +17,16 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
+    const navigate = useNavigate()
+
     const auth = getAuth(app);
     const firestore = getFirestore(app);
 
@@ -42,14 +47,15 @@ const SignIn = () => {
         setIsLoading(true);
 
         try {
-
-            const userCredential = await createUserWithEmailAndPassword(
+            await setPersistence(auth, browserSessionPersistence)
+            await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
-            const user = userCredential.user;
-
+            
+            navigate(-1)
+            toast.success(`Logged in successfully`)
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));
@@ -60,6 +66,7 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         try {
+            await setPersistence(auth, browserSessionPersistence)
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
@@ -137,6 +144,11 @@ const SignIn = () => {
                             }`}>
                             {isLoading ? "Loading" : "Sign-in"}
                         </button>
+                        <p className="text-center mt-2">
+                            <Link to="/forgot-password" className="text-amber-500">
+                                Forgot password?
+                            </Link>
+                        </p>
                         <p className="text-center py-4">
                            Don't have an account?{" "}
                             <Link to="/register" className="text-amber-500">

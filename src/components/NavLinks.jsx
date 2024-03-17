@@ -13,10 +13,7 @@ const links = [
         path: `/about`,
         name: "About",
     },
-    {
-        path: `/register`,
-        name: "Sign-up",
-    },
+
 ];
 
 const NavLinks = () => {
@@ -24,7 +21,7 @@ const NavLinks = () => {
     return (
         <>
             {links.map((link, index) => (
-                <NavLink to={link.path} key={index} className="text-sm mr-8">
+                <NavLink to={link.path} key={index} className="lowercase text-sm mr-8">
                     {link.name}
                 </NavLink>
             ))}

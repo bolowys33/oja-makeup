@@ -6,6 +6,8 @@ export function getErrorMessage(errorCode) {
             return "The password is too weak";
         case "auth/invalid-email":
             return "The email address is invalid.";
+        case "auth/invalid-credential":
+            return "Invalid credentials.";
         case "auth/user-not-found":
             return "There is no user record corresponding to this email";
         case "auth/wrong-password":
