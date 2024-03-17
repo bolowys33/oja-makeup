@@ -18,13 +18,16 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
+import Notification from "../components/Notification";
 
 const SignUp = () => {
+    const navigate = useNavigate()
+
     const auth = getAuth(app);
     const firestore = getFirestore(app);
 
@@ -33,6 +36,7 @@ const SignUp = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [passConfirm, setPassConfirm] = useState("");
+    const [emailSent, setEmailSent] = useState(false);
     const [error, setError] = useState(null);
 
     const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +78,7 @@ const SignUp = () => {
                 lastName: lastName,
                 email: email,
             });
-
+            setEmailSent(true)
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));
@@ -99,6 +103,12 @@ const SignUp = () => {
             setError(getErrorMessage(error.code));
         }
     };
+
+    if (emailSent) {
+        return (
+            <Notification title={'Verify your email' } action={'verification'} />
+        )
+    }
 
     return (
         <div className="mt-16 md:mt-14 py-6">

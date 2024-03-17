@@ -144,6 +144,11 @@ const SignIn = () => {
                             }`}>
                             {isLoading ? "Loading" : "Sign-in"}
                         </button>
+                        <p className="text-center mt-2">
+                            <Link to="/forgot-password" className="text-amber-500">
+                                Forgot password?
+                            </Link>
+                        </p>
                         <p className="text-center py-4">
                            Don't have an account?{" "}
                             <Link to="/register" className="text-amber-500">

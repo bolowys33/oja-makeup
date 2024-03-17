@@ -13,6 +13,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Cart from "./pages/Cart";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SIgnIn";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/login" element={<SignIn />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
                 </Routes>
                 <Footer />
             </PersistGate>
