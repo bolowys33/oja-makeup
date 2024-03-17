@@ -3,7 +3,6 @@ import app from "../firebase/auth";
 import {
     GoogleAuthProvider,
     browserSessionPersistence,
-    createUserWithEmailAndPassword,
     getAuth,
     setPersistence,
     signInWithEmailAndPassword,
@@ -23,13 +22,12 @@ import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
     const navigate = useNavigate()
 
     const auth = getAuth(app);
-    
-
     const firestore = getFirestore(app);
 
     const [email, setEmail] = useState("");
@@ -50,15 +48,14 @@ const SignIn = () => {
 
         try {
             await setPersistence(auth, browserSessionPersistence)
-            const userCredential = await signInWithEmailAndPassword(
+            await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
             
-            const user = userCredential.user;
-            
-            navigate("/")
+            navigate(-1)
+            toast.success(`Logged in successfully`)
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));

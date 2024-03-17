@@ -1,4 +1,4 @@
-import { ScaleLoader } from "react-spinners";
+
 import ProductCard from "./ProductCard";
 import { useFilterState } from "../states/filterContext";
 

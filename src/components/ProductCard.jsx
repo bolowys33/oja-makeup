@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ProductPrice from "./ProductPrice";
 import { AddShoppingCart } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { calcTotal, itemAdded } from "../redux/cartSlice";
 
 const ProductCard = ({ product }) => {
