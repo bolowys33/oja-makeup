@@ -111,7 +111,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="mt-16 md:mt-14 py-6">
+        <div className="mt-16 md:mt-14 py-6 min-h-screen">
             <Container maxWidth="xs" className="shadow-xl rounded-md pb-5">
                 <Box mt={4}>
                     <h3 className="text-2xl font-bold text-center text-dark-yellow">

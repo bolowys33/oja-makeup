@@ -45,8 +45,10 @@ const SignIn = () => {
     const handleSignUpWithEmail = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-
+        
         try {
+            setError(null)
+
             await setPersistence(auth, browserSessionPersistence)
             await signInWithEmailAndPassword(
                 auth,
@@ -58,6 +60,7 @@ const SignIn = () => {
             toast.success(`Logged in successfully`)
             setIsLoading(false);
         } catch (error) {
+            setPassword("");
             setError(getErrorMessage(error.code));
             setIsLoading(false);
         }
@@ -82,7 +85,7 @@ const SignIn = () => {
     };
 
     return (
-        <div className="mt-16 md:mt-14 py-6">
+        <div className="mt-16 md:mt-14 py-6 h-screen">
             <Container maxWidth="xs" className="shadow-xl rounded-md pb-5">
                 <Box mt={4}>
                     <h3 className="text-2xl font-bold text-center text-dark-yellow">
@@ -129,7 +132,6 @@ const SignIn = () => {
                                     </InputAdornment>
                                 }
                                 label="Password"
-                                name="password"
                                 value={password}
                                 onChange={(e) =>
                                     setPassword(e.target.value.trim())
