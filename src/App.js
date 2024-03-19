@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SIgnIn";
 import ForgotPassword from "./pages/ForgotPassword";
+import Protected from "./HOC/Protected";
 
 function App() {
     return (
@@ -24,7 +25,7 @@ function App() {
                 </div>
                 <ToastContainer
                     style={{
-                       top: '60px'
+                        top: "60px",
                     }}
                 />
                 <Routes>
@@ -36,7 +37,18 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/login" element={<SignIn />} />
-                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route
+                        path="/forgot-password"
+                        element={<ForgotPassword />}
+                    />
+                    <Route
+                        path="/orders"
+                        element={
+                            <Protected>
+                                <p>orderrrrrr</p>
+                            </Protected>
+                        }
+                    />
                 </Routes>
                 <Footer />
             </PersistGate>

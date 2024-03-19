@@ -91,7 +91,7 @@ const Header = () => {
                                         <div className="flex flex-col">
                                             <Link
                                                 className="text-white hover:text-yellow mx-auto"
-                                                to="/register">
+                                                to="/orders">
                                                 orders
                                             </Link>
                                             <Link
