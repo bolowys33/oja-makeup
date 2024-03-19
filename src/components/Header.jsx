@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { ArrowDropDown, Favorite, ShoppingCart } from "@mui/icons-material";
+import { ArrowDropDown, ShoppingCart } from "@mui/icons-material";
 import "../css/Header.css";
 import BrandLink from "./BrandLink";
 import NavLinks from "./NavLinks";
 import { useSelector } from "react-redux";
 import { Badge, styled } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react"; // Removed unnecessary imports
+import { useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import app from "../firebase/auth";
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
@@ -24,7 +24,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     const auth = getAuth(app);
-    const firestore = getFirestore(app);
+    const db = getFirestore(app);
 
     const [user, setUser] = useState(null);
     const [showSignInBox, setShowSignInBox] = useState(false);
@@ -58,7 +58,7 @@ const Header = () => {
             if (user) {
                 try {
                     const userDoc = await getDoc(
-                        doc(firestore, "users", user.uid)
+                        doc(db, "users", user.uid)
                     );
                     if (userDoc.exists()) {
                         setUser(userDoc.data());
@@ -70,7 +70,7 @@ const Header = () => {
         });
 
         return () => unsubscribe();
-    }, []);
+    });
 
     return (
         <div className="sticky__2 mb-16 md:mb-20 shadow-md">

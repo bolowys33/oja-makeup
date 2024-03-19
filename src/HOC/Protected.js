@@ -14,7 +14,7 @@ const Protected = ({ children }) => {
     });
 
     return () => unsubscribe();
-  }, []);
+  });
 
   return children; // Return children outside the useEffect hook
 };
