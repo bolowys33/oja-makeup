@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import app from "../firebase/auth";
+import app from "../firebase/auth.mjs";
 import {
     GoogleAuthProvider,
     browserSessionPersistence,
@@ -83,6 +83,8 @@ const SignIn = () => {
             setError(getErrorMessage(error.code));
         }
     };
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     return (
         <div className="mt-16 md:mt-14 py-6 h-screen">

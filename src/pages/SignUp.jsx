@@ -23,7 +23,7 @@ import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
-import Notification from "../components/Notification";zz
+import Notification from "../components/Notification";
 
 const SignUp = () => {
     const auth = getAuth(app);
@@ -101,6 +101,8 @@ const SignUp = () => {
             setError(getErrorMessage(error.code));
         }
     };
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (emailSent) {
         return (

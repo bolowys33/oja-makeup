@@ -29,6 +29,8 @@ const ForgotPassword = () => {
         }
     };
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (emailSent) {
         return (
             <Notification
