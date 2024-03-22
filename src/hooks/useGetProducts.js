@@ -9,16 +9,9 @@ function useGetProducts() {
     const [isLoading, setIsLoading] = useState(false);
     const [state, dispatch] = useFilterState();
 
-    const priceGreaterThan =
-        state.filters.minPrice !== null ? +state.filters.minPrice - 0.1 : null;
-    const priceLessThan =
-        state.filters.maxPrice !== null ? +state.filters.maxPrice + 0.1 : null;
-
     const params =  {
         product_type: state.filters.productType,
         brand: state.filters.brand,
-        price_greater_than: priceGreaterThan,
-        price_less_than: priceLessThan,
     };
 
     const getProducts = () => {

@@ -8,12 +8,12 @@ const ProductPreview = ({product}) => {
     const dispatch = useDispatch()
     const state = useSelector((state) => state.cart);
     
-    const price = Math.ceil(parseFloat(product.price))
+    const price = Math.ceil(parseFloat(product.price)) + 1 * 100
 
     const payload = {
         id: product.id,
         name: product.name,
-        image: `https://${product.api_featured_image}`,
+        image: `https:${product.api_featured_image}`,
         price,
     };
 

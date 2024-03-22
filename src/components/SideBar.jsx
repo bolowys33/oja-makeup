@@ -1,6 +1,4 @@
 import Categories from "./Categories";
-import PriceRange from "./PriceRange";
-
 import { BRANDS } from "../constants/brands";
 import { setFilter } from "../states/actionCreators";
 import Dropdown from "./Dropdown";
@@ -26,7 +24,6 @@ const SideBar = () => {
     return (
         <>
             <div className="pl-6">
-                <PriceRange onChange={handleChange} />
                 <Dropdown values={["all", ...BRANDS]} onChange={handleChange} />
                 <div className="bg-gray-200 px-6 py-2 mb-4 text-sm">
                     <Categories onSelect={handleSelect} />

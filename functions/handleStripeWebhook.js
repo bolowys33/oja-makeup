@@ -1,15 +1,6 @@
 import { getFirestore } from "firebase-admin/firestore";
 import * as functions from "firebase-functions";
 import cors from "cors";
-
-import {
-    collection,
-    where,
-    limit,
-    getDocs,
-    updateDoc,
-    doc,
-} from "firebase/firestore";
 import Stripe from "stripe";
 
 const db = getFirestore();
@@ -29,7 +20,6 @@ export const handleStripeWebhook = functions.https.onRequest(
             const sign = req.headers["stripe-signature"];
 
             let event;
-
             try {
                 event = stripe.webhooks.constructEvent(
                     req.rawBody,
@@ -48,8 +38,9 @@ export const handleStripeWebhook = functions.https.onRequest(
                         sessionId,
                         "success"
                     );
-                    console.log(`Order ${orderId} status updated to success.`);
-                    // store.dispatch(clearAll());
+                    functions.logger.debug(
+                        `Order ${orderId} status updated to success.`
+                    );
                     break;
                 case "checkout.session.async_payment_failed":
                     const failedSessionId = event.data.object.id;
@@ -57,32 +48,50 @@ export const handleStripeWebhook = functions.https.onRequest(
                         failedSessionId,
                         "failed"
                     );
-                    console.log(
+
+                    functions.logger.debug(
                         `Order ${failedOrderId} status updated to failed.`
                     );
                     break;
+                case "checkout.session.expired":
+                    const failedSession = event.data.object.id;
+                    const failedOrder = await updateOrderStatus(
+                        failedSession,
+                        "failed"
+                    );
+                    functions.logger.debug(
+                        `Order ${failedOrder} status updated to failed.`
+                    );
+                    break;
                 default:
-                    console.log(`Unhandled event type ${event.type}`);
+                    functions.logger.debug(
+                        `Unhandled event type ${event.type}`
+                    );
             }
-
-            res.status(200).end();
+            functions.logger.debug(`Updated successfully`);
+            res.status(200).json({success: true, message: `Updated successfully`});
         });
     }
 );
 
 async function updateOrderStatus(sessionId, status) {
-    const querySnapshot = await getDocs(
-        collection(db, "orders"),
-        where("sessionId", "==", sessionId),
-        limit(1)
-    );
+    try {
+        const querySnapshot = await db
+            .collection("orders")
+            .where("sessionId", "==", sessionId)
+            .limit(1)
+            .get();
+        if (querySnapshot.empty) {
+            console.error(`No order found with sessionId ${sessionId}`);
+            return null;
+        }
 
-    if (querySnapshot.empty) {
-        console.error(`No order found with sessionId ${sessionId}`);
+        const orderDoc = querySnapshot.docs[0];
+        const orderRef = db.doc(`orders/${orderDoc.id}`);
+        await orderRef.update({ status });
+        return orderDoc.id;
+    } catch (error) {
+        console.error("Error updating order status:", error);
         return null;
     }
-
-    const orderDoc = querySnapshot.docs[0];
-    await updateDoc(doc(db, "orders", orderDoc.id), { status });
-    return orderDoc.id;
 }

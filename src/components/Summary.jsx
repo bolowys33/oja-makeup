@@ -33,6 +33,10 @@ const Summary = () => {
     );
 
     const handleCheckout = async () => {
+        if (total < 1000) {
+            toast.error(`Minimum amount to checkout is #1000`);
+        }
+
         if (!userId) {
             navigate(`/login`);
             toast.error(`You must be logged in to checkout`);
@@ -50,7 +54,7 @@ const Summary = () => {
                 }
             );
 
-            const data = response.data;
+            const data = response.data.data;
 
             // Redirect the user to the Stripe checkout page
             const stripe = await stripePromise;
@@ -59,7 +63,6 @@ const Summary = () => {
             });
 
             if (result.error) {
-                console.error(result.error.message);
                 toast.error("Error redirecting to checkout");
             }
         } catch (error) {
@@ -85,6 +88,11 @@ const Summary = () => {
                 className="rounded-full text-sm font-bold font-krona uppercase bg-yellow py-3 px-10 justify-self-center shadow-lg hover:bg-dark-yellow">
                 Checkout ({items.length})
             </button>
+            {total < 1000 && (
+                <p className="text-red-600 text-center font-bold">
+                    Minimum amount to checkout: &#8358; 1000
+                </p>
+            )}
         </div>
     );
 };
