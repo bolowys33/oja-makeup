@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import app from "../firebase/auth";
-import {
-    getAuth,
-    sendPasswordResetEmail,
-    signInWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { Box, Container } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
 import InputField from "../components/TextField";
 import { getErrorMessage } from "../constants/error";
 import Notification from "../components/Notification";
 
 const ForgotPassword = () => {
-    const navigate = useNavigate();
-
     const auth = getAuth(app);
 
     const [email, setEmail] = useState("");
@@ -28,7 +21,7 @@ const ForgotPassword = () => {
 
         try {
             await sendPasswordResetEmail(auth, email);
-            setEmailSent(true)
+            setEmailSent(true);
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));
@@ -36,10 +29,15 @@ const ForgotPassword = () => {
         }
     };
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (emailSent) {
         return (
-            <Notification title={'Recover your password' } action={'password reset'} />
-        )
+            <Notification
+                title={"Recover your password"}
+                action={"password reset"}
+            />
+        );
     }
 
     return (

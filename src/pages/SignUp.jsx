@@ -18,7 +18,7 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
@@ -26,10 +26,8 @@ import { getErrorMessage } from "../constants/error";
 import Notification from "../components/Notification";
 
 const SignUp = () => {
-    const navigate = useNavigate()
-
     const auth = getAuth(app);
-    const firestore = getFirestore(app);
+    const db = getFirestore(app);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -73,12 +71,12 @@ const SignUp = () => {
             await sendEmailVerification(user);
 
             // Save the user's name to Firestore
-            await setDoc(doc(firestore, "users", user.uid), {
+            await setDoc(doc(db, "users", user.uid), {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
             });
-            setEmailSent(true)
+            setEmailSent(true);
             setIsLoading(false);
         } catch (error) {
             setError(getErrorMessage(error.code));
@@ -89,12 +87,12 @@ const SignUp = () => {
     const handleGoogleSignUp = async () => {
         const provider = new GoogleAuthProvider();
         try {
-            await setPersistence(auth, browserSessionPersistence)
+            await setPersistence(auth, browserSessionPersistence);
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
             // Save the user's name to Firestore
-            await setDoc(doc(firestore, "users", user.uid), {
+            await setDoc(doc(db, "users", user.uid), {
                 firstName: user.displayName.split(" ")[0],
                 lastName: user.displayName.split(" ")[1],
                 email: user.email,
@@ -104,10 +102,12 @@ const SignUp = () => {
         }
     };
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     if (emailSent) {
         return (
-            <Notification title={'Verify your email' } action={'verification'} />
-        )
+            <Notification title={"Verify your email"} action={"verification"} />
+        );
     }
 
     return (

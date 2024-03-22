@@ -4,7 +4,5 @@ export const initialFilterState = {
     filters: {
         brand: null,
         productType: null,
-        minPrice: null,
-        maxPrice: null,
     },
 };

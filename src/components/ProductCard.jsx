@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const price = Math.ceil(parseFloat(product.price))
+    const price = Math.ceil(parseFloat(product.price)) + 1 * 100
 
     const handleClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
     const payload = {
         id: product.id,
         name: product.name,
-        image: `https://${product.api_featured_image}`,
+        image: `https:${product.api_featured_image}`,
         price
     };
 

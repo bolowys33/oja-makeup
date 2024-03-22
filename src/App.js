@@ -15,6 +15,8 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SIgnIn";
 import ForgotPassword from "./pages/ForgotPassword";
 import Protected from "./HOC/Protected";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 
 function App() {
     return (
@@ -37,6 +39,8 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/login" element={<SignIn />} />
+                    <Route path="/orders/success" element={<Success />} />
+                    <Route path="/orders/failed" element={<Cancel />} />
                     <Route
                         path="/forgot-password"
                         element={<ForgotPassword />}
