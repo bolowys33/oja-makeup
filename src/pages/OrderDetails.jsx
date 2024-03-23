@@ -88,7 +88,6 @@ const OrderDetails = () => {
                     </Container>
                 </div>
             )}
-            <button></button>
         </div>
     );
 };
