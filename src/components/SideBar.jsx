@@ -23,7 +23,7 @@ const SideBar = () => {
 
     return (
         <>
-            <div className="pl-6">
+            <div className="pl-3">
                 <Dropdown values={["all", ...BRANDS]} onChange={handleChange} />
                 <div className="bg-gray-200 px-6 py-2 mb-4 text-sm">
                     <Categories onSelect={handleSelect} />

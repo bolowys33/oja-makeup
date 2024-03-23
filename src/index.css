@@ -4,6 +4,19 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Poppins&display=swap");
 
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #DEB360;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 body {
     font-family: "Poppins", sans-serif;
     @apply text-darkooo;
@@ -11,16 +24,28 @@ body {
 
 .product {
     display: grid;
-    grid-template-columns: 250px auto;
+    grid-template-columns: auto;
     grid-template-areas:
-        "sidebar main"
-        "sidebar main";
+        "main"
 }
 
 .product .sidebar {
     grid-area: sidebar;
+    display: none;
 }
 
 .product .main-content {
     grid-area: main;
+}
+
+@media screen and (min-width: 768px) {
+    .product {
+        grid-template-columns: 190px auto;
+        grid-template-areas:
+            "sidebar main"
+    }
+
+    .product .sidebar {
+        display: block;
+    }
 }
