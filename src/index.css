@@ -8,13 +8,11 @@
     width: 8px;
   }
   
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #DEB360;
     border-radius: 5px;
   }
   
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
