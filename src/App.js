@@ -17,6 +17,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Protected from "./HOC/Protected";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import Orders from "./pages/Orders";
+import OrderDetails from "./pages/OrderDetails";
 
 function App() {
     return (
@@ -49,7 +51,15 @@ function App() {
                         path="/orders"
                         element={
                             <Protected>
-                                <p>orderrrrrr</p>
+                                <Orders />
+                            </Protected>
+                        }
+                    />
+                    <Route
+                        path="/orders/:id"
+                        element={
+                            <Protected>
+                                <OrderDetails />
                             </Protected>
                         }
                     />
