@@ -6,6 +6,7 @@ import {
     query,
     collection,
     where,
+    orderBy,
 } from "@firebase/firestore";
 
 
@@ -20,7 +21,11 @@ function useOrders() {
         setIsLoading(true);
         
         const ordersRef = collection(db, "orders");
-        const ordersQuery = query(ordersRef, where("userId", "==", userId));
+        const ordersQuery = query(
+            ordersRef,
+            where("userId", "==", userId),
+            orderBy('orderRef', 'desc')
+        );
         
         try {
             const querySnapshot = await getDocs(ordersQuery);

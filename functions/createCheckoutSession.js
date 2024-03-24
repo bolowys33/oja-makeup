@@ -53,18 +53,19 @@ const createCheckoutSession = functions.https.onRequest(async (req, res) => {
 
             // Store the order details in Firestore
             const orderCollectionRef = db.collection("orders");
-            const orderRef = await orderCollectionRef.add({
+            const order = await orderCollectionRef.add({
                 userId,
                 items,
                 status: "pending",
                 totalAmount,
-                createdAt: Date.now(),
+                createdAt: new Date(Date.now()).toISOString().split('T')[0],
                 sessionId: session.id,
+                orderRef: Date.now()
             });
 
             res.status(200).json({
                 success: true,
-                data: { id: session.id, orderId: orderRef.id },
+                data: { id: session.id, orderId: order.id },
                 message: "Session created",
             });
         } catch (error) {

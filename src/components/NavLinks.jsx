@@ -1,27 +1,22 @@
 import { NavLink } from "react-router-dom";
-
-const links = [
-    {
-        path: `/home`,
-        name: "Home",
-    },
-    {
-        path: `/products`,
-        name: "Products",
-    },
-    {
-        path: `/about`,
-        name: "About",
-    },
-
-];
+import { links } from "../constants/links";
 
 const NavLinks = () => {
+    const activeStyle = {
+        color: "#DEB350",
+    };
 
     return (
         <>
             {links.map((link, index) => (
-                <NavLink to={link.path} key={index} className="lowercase text-sm mr-8">
+                <NavLink
+                    style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                    }
+                    to={link.path}
+                    key={index}
+                    className="lowercase text-sm mr-8
+                    hidden md:block">
                     {link.name}
                 </NavLink>
             ))}

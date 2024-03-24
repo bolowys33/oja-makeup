@@ -38,7 +38,7 @@ const OrderDetails = () => {
                             </div>
                             <div className="text-sm font-semibold m-2 flex justify-between">
                                 <div>
-                                    <p>Order Ref</p>
+                                    <p>Order Id</p>
                                     <p className="font-normal">{order?.id}</p>
                                 </div>
                                 <div>
@@ -55,7 +55,7 @@ const OrderDetails = () => {
                             </div>
                             <div className="text-sm">
                                 {order?.items.map((item) => (
-                                    <div className="m-2 border-b-2 py-2">
+                                    <div className="m-2 border-b-2 py-2" key={item.id}>
                                         <div className="flex justify-between">
                                             <p className="font-semibold w-1/3">{item.name}</p>
                                             <p className="font-normal">&#8358; {item.price}</p>
