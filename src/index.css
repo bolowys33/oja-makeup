@@ -22,6 +22,16 @@ body {
     @apply text-darkooo;
 }
 
+.active-link {
+    padding: 0.8rem 10px;
+      background-color: #f97316;
+      color: #200000;
+      font-weight: 700;
+      border-bottom: none;
+      border-radius: 10px;
+}
+
+
 .product {
     display: grid;
     grid-template-columns: auto;
