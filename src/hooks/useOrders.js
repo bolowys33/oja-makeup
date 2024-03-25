@@ -17,14 +17,14 @@ function useOrders() {
     const [isLoading, setIsLoading] = useState(false);
 
     
-    const getOrders = async (userId) => {
+    const getOrders = async (userId, order) => {
         setIsLoading(true);
         
         const ordersRef = collection(db, "orders");
         const ordersQuery = query(
             ordersRef,
             where("userId", "==", userId),
-            orderBy('orderRef', 'desc')
+            orderBy('orderRef', order)
         );
         
         try {

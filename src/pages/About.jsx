@@ -3,6 +3,8 @@ import BrandLink from "../components/BrandLink";
 import Facts from "../components/Facts";
 
 const About = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return (
         <>
             <div className="flex items-center mt-16 md:mt-20">
