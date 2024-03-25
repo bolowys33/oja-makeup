@@ -6,16 +6,16 @@
 
 ::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #DEB360;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #deb360;
     border-radius: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}
 
 body {
     font-family: "Poppins", sans-serif;
@@ -24,24 +24,23 @@ body {
 
 .active-link {
     padding: 0.8rem 10px;
-      background-color: #f97316;
-      color: #200000;
-      font-weight: 700;
-      border-bottom: none;
-      border-radius: 10px;
+    background-color: #f97316;
+    color: #200000;
+    font-weight: 700;
+    border-bottom: none;
+    border-radius: 10px;
 }
-
 
 .product {
     display: grid;
     grid-template-columns: auto;
     grid-template-areas:
-        "main"
+        "sidebar"
+        "main";
 }
 
 .product .sidebar {
     grid-area: sidebar;
-    display: none;
 }
 
 .product .main-content {
@@ -51,11 +50,6 @@ body {
 @media screen and (min-width: 768px) {
     .product {
         grid-template-columns: 190px auto;
-        grid-template-areas:
-            "sidebar main"
-    }
-
-    .product .sidebar {
-        display: block;
+        grid-template-areas: "sidebar main";
     }
 }

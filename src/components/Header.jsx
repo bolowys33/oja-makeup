@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowDropDown, Menu, ShoppingCart } from "@mui/icons-material";
+import { ArrowDropDown, ShoppingCart } from "@mui/icons-material";
 import "../css/Header.css";
 import BrandLink from "./BrandLink";
 import NavLinks from "./NavLinks";
@@ -12,7 +12,7 @@ import app from "../firebase/auth";
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
 import { toast } from "react-toastify";
 import Hamburger from "./Hamburger";
-import menu from '../assets/menu.png'
+import menu from "../assets/menu.png";
 
 const StyledBadge = styled(Badge)(() => ({
     "& .MuiBadge-badge": {
@@ -46,9 +46,9 @@ const Header = () => {
 
     const handleLogOut = async () => {
         try {
-            await signOut(auth)
-            setUser(null)
-            toast.success(`User logged out successfully`)
+            await signOut(auth);
+            setUser(null);
+            toast.success(`User logged out successfully`);
         } catch (error) {
             console.log(error.message);
         }
@@ -64,9 +64,7 @@ const Header = () => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if (user) {
                 try {
-                    const userDoc = await getDoc(
-                        doc(db, "users", user.uid)
-                    );
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
                     if (userDoc.exists()) {
                         setUser(userDoc.data());
                     }
@@ -82,24 +80,25 @@ const Header = () => {
     return (
         <div className="sticky__2 mb-16 md:mb-20 shadow-md">
             <header className="container mx-auto flex justify-between font-krona py-3 items-center">
-            <div className="flex items-center">
-            <button className="block md:hidden font-bold mr-4" onClick={handleMobileMenuToggle}>
-                        <img src={menu} alt="" width={30}/>
-                    </button>
-                <BrandLink />
-            </div>
                 <div className="flex items-center">
-                    {/* Hamburger menu button */}
-                    
-                    {/* Mobile Menu Component */}
+                    <button
+                        className="block md:hidden font-bold mr-4"
+                        onClick={handleMobileMenuToggle}>
+                        <img src={menu} alt="" width={30} />
+                    </button>
+                    <BrandLink />
+                </div>
+                <div className="flex items-center">
                     <NavLinks />
-                    <Hamburger isOpen={isMobileMenuOpen} onClose={handleMobileMenuToggle} />
+                    <Hamburger
+                        isOpen={isMobileMenuOpen}
+                        onClose={handleMobileMenuToggle}
+                    />
                     <div className="flex text-darkooo cursor-pointer">
                         <div
                             className="text-sm mr-6 lowercase"
                             onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
+                            onMouseLeave={handleMouseLeave}>
                             {user ? user.firstName : "my account"}
                             <ArrowDropDown />
                             {showSignInBox && (
@@ -108,15 +107,13 @@ const Header = () => {
                                         <div className="flex flex-col">
                                             <Link
                                                 className="text-white hover:text-yellow mx-auto"
-                                                to="/orders"
-                                            >
+                                                to="/orders">
                                                 orders
                                             </Link>
                                             <Link
                                                 onClick={handleLogOut}
                                                 className="bg-yellow hover:bg-dark-yellow text-darkooo hover-bg-[#FF8D3A] p-2 rounded mt-3"
-                                                to="/login"
-                                            >
+                                                to="/login">
                                                 log out
                                             </Link>
                                         </div>
@@ -124,14 +121,12 @@ const Header = () => {
                                         <div className="flex flex-col">
                                             <Link
                                                 className="bg-yellow hover:bg-dark-yellow text-darkooo hover-bg-[#FF8D3A] p-2 rounded"
-                                                to="/login"
-                                            >
+                                                to="/login">
                                                 Sign In
                                             </Link>
                                             <Link
                                                 className="text-white hover:text-yellow mx-auto mt-3"
-                                                to="/register"
-                                            >
+                                                to="/register">
                                                 Sign Up
                                             </Link>
                                         </div>
@@ -141,8 +136,7 @@ const Header = () => {
                         </div>
                         <StyledBadge
                             onClick={handleClick}
-                            badgeContent={items.length}
-                        >
+                            badgeContent={items.length}>
                             Cart
                             <ShoppingCart />
                         </StyledBadge>
@@ -152,6 +146,5 @@ const Header = () => {
         </div>
     );
 };
-
 
 export default Header;
