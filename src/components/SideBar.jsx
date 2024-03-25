@@ -29,7 +29,7 @@ const SideBar = () => {
             <div className="pl-3">
                 <div className="flex justify-center md:block">
                 <Dropdown values={["all", ...BRANDS]} onChange={handleChange} name={'brand'} label={'brand'} />
-                <Dropdown values={[...SUBCAT]} onChange={handleChange} name={'productType'} label={'type'} hidden />
+                <Dropdown values={SUBCAT} onChange={handleChange} name={'productType'} label={'type'} hidden />
                 </div>
                 <div className="bg-gray-200 px-6 py-2 mb-4 text-sm hidden md:block">
                     <Categories onSelect={handleSelect} />
