@@ -4,6 +4,8 @@ import MissionBanner from "../components/MissionBanner";
 import TopProducts from "../components/TopProducts";
 
 const Home = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return (
         <>
             <div className="home ">

@@ -6,6 +6,8 @@ import EmptyCart from "../components/EmptyCart";
 const Cart = () => {
     const { items } = useSelector((state) => state.cart);
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return (
         <div
             className={`bg-light-grey ${

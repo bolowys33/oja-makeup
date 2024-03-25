@@ -21,6 +21,7 @@ import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
 
 function App() {
+
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>

@@ -12,6 +12,8 @@ const OrderDetails = () => {
         getOrder(id);
     }, []);
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return (
         <div className="mt-16 md:mt-14 py-6 min-h-screen bg-light-grey">
             {isLoading ? (
@@ -55,13 +57,29 @@ const OrderDetails = () => {
                             </div>
                             <div className="text-sm">
                                 {order?.items.map((item) => (
-                                    <div className="m-2 border-b-2 py-2" key={item.id}>
+                                    <div
+                                        className="m-2 border-b-2 py-2"
+                                        key={item.id}>
                                         <div className="flex justify-between">
-                                            <p className="font-semibold w-1/3">{item.name}</p>
-                                            <p className="font-normal">&#8358; {item.price}</p>
-                                            <p className="font-normal">{item.quantity} {item.quantity == 1 ? 'unit' : 'units' }</p>
+                                            <p className="font-semibold w-1/3">
+                                                {item.name}
+                                            </p>
+                                            <p className="font-normal">
+                                                &#8358; {item.price}
+                                            </p>
+                                            <p className="font-normal">
+                                                {item.quantity}{" "}
+                                                {item.quantity == 1
+                                                    ? "unit"
+                                                    : "units"}
+                                            </p>
                                         </div>
-                                        <img src={item.image} alt="" width={100} className="mx-auto my-2" />
+                                        <img
+                                            src={item.image}
+                                            alt=""
+                                            width={100}
+                                            className="mx-auto my-2"
+                                        />
                                     </div>
                                 ))}
                             </div>
@@ -80,7 +98,7 @@ const OrderDetails = () => {
                                 <div>
                                     <p>Total Amount</p>
                                     <p className="font-normal text-end">
-                                       &#8358; {order?.totalAmount}
+                                        &#8358; {order?.totalAmount}
                                     </p>
                                 </div>
                             </div>
