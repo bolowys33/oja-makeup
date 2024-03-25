@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 function useGetRecommendedProducts() {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [isPending, setIsPending] = useState(false)
