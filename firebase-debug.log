@@ -1,0 +1,125 @@
+[debug] [2024-03-25T19:15:16.453Z] ----------------------------------------------------------------------
+[debug] [2024-03-25T19:15:16.468Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-03-25T19:15:16.471Z] CLI Version:   13.5.2
+[debug] [2024-03-25T19:15:16.474Z] Platform:      win32
+[debug] [2024-03-25T19:15:16.476Z] Node Version:  v20.7.0
+[debug] [2024-03-25T19:15:16.477Z] Time:          Mon Mar 25 2024 20:15:16 GMT+0100 (West Africa Standard Time)
+[debug] [2024-03-25T19:15:16.478Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-25T19:15:16.981Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-25T19:15:16.982Z] > authorizing via signed-in user (bolowys33@gmail.com)
+[debug] [2024-03-25T19:15:16.982Z] [iam] checking project oja-dev for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-03-25T19:15:16.987Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/oja-dev:testIamPermissions [none]
+[debug] [2024-03-25T19:15:16.987Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/oja-dev:testIamPermissions x-goog-quota-user=projects/oja-dev
+[debug] [2024-03-25T19:15:16.987Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oja-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-03-25T19:15:18.141Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/oja-dev:testIamPermissions 200
+[debug] [2024-03-25T19:15:18.143Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/oja-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-03-25T19:15:18.146Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/oja-dev/serviceAccounts/oja-dev@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-03-25T19:15:18.146Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/oja-dev/serviceAccounts/oja-dev@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-03-25T19:15:19.475Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/oja-dev/serviceAccounts/oja-dev@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-03-25T19:15:19.475Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/oja-dev/serviceAccounts/oja-dev@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'oja-dev'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-03-25T19:17:22.599Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev [none]
+[debug] [2024-03-25T19:17:23.967Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev 200
+[debug] [2024-03-25T19:17:23.968Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev {"projectId":"oja-dev","projectNumber":"206692192787","displayName":"oja-dev","name":"projects/oja-dev","resources":{"hostingSite":"oja-dev"},"state":"ACTIVE","etag":"1_5a57d9a5-0e1f-44d8-b1c4-9eadb5f85952"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-03-25T19:17:23.981Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-03-25T19:17:23.982Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/oja-dev
+[debug] [2024-03-25T19:17:23.988Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-03-25T19:17:23.988Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/oja-dev
+[debug] [2024-03-25T19:17:23.993Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudbuild.googleapis.com [none]
+[debug] [2024-03-25T19:17:23.995Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudbuild.googleapis.com x-goog-quota-user=projects/oja-dev
+[debug] [2024-03-25T19:17:24.003Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/artifactregistry.googleapis.com [none]
+[debug] [2024-03-25T19:17:24.003Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/artifactregistry.googleapis.com x-goog-quota-user=projects/oja-dev
+[debug] [2024-03-25T19:17:25.843Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudbuild.googleapis.com 200
+[debug] [2024-03-25T19:17:25.844Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-03-25T19:17:25.904Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/runtimeconfig.googleapis.com 200
+[debug] [2024-03-25T19:17:25.905Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-03-25T19:17:26.042Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/artifactregistry.googleapis.com 200
+[debug] [2024-03-25T19:17:26.043Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-03-25T19:17:27.768Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudfunctions.googleapis.com 200
+[debug] [2024-03-25T19:17:27.769Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/oja-dev/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-03-25T19:17:27.772Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev/adminSdkConfig [none]
+[debug] [2024-03-25T19:17:28.138Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev/adminSdkConfig 200
+[debug] [2024-03-25T19:17:28.139Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/oja-dev/adminSdkConfig {"projectId":"oja-dev","storageBucket":"oja-dev.appspot.com"}
+[debug] [2024-03-25T19:17:28.142Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs [none]
+[debug] [2024-03-25T19:17:30.371Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs 200
+[debug] [2024-03-25T19:17:30.372Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs {"configs":[{"name":"projects/oja-dev/configs/stripe"}]}
+[debug] [2024-03-25T19:17:30.374Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables [none]
+[debug] [2024-03-25T19:17:30.697Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables 200
+[debug] [2024-03-25T19:17:30.698Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables {"variables":[{"name":"projects/oja-dev/configs/stripe/variables/webhook_key","updateTime":"2024-03-22T13:11:23.245580879Z"},{"name":"projects/oja-dev/configs/stripe/variables/publishable_key","updateTime":"2024-03-20T15:39:40.370057384Z"},{"name":"projects/oja-dev/configs/stripe/variables/secret_key","updateTime":"2024-03-20T15:39:39.307996411Z"}]}
+[debug] [2024-03-25T19:17:30.702Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/webhook_key [none]
+[debug] [2024-03-25T19:17:30.705Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/publishable_key [none]
+[debug] [2024-03-25T19:17:30.715Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/secret_key [none]
+[debug] [2024-03-25T19:17:31.029Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/webhook_key 200
+[debug] [2024-03-25T19:17:31.029Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/webhook_key {"name":"projects/oja-dev/configs/stripe/variables/webhook_key","updateTime":"2024-03-22T13:11:23.245580879Z","text":"whsec_SoOrkUDVqTH7d8rIoemOI5rjesFuEuBr"}
+[debug] [2024-03-25T19:17:32.732Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/secret_key 200
+[debug] [2024-03-25T19:17:32.732Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/secret_key {"name":"projects/oja-dev/configs/stripe/variables/secret_key","updateTime":"2024-03-20T15:39:39.307996411Z","text":"sk_test_51OvPeKHTCAyusGqbZZgtUlYQ0qgDPK4seY9NcbzvcLIC6bRr6COt6mI6jnTbVrF1BI2hcCcAv88HMJX3ZVJE7V7C00iNoKgeY7"}
+[debug] [2024-03-25T19:17:32.975Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/publishable_key 200
+[debug] [2024-03-25T19:17:32.976Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/oja-dev/configs/stripe/variables/publishable_key {"name":"projects/oja-dev/configs/stripe/variables/publishable_key","updateTime":"2024-03-20T15:39:40.370057384Z","text":"pk_test_51OvPeKHTCAyusGqbhteR35RmlUtdZCTS2MSsDU0QPbnW6j29WmhJacYU0v1LDlAzFA8BNXYC3DlQmQKihQBIi7mp00CL23phqi"}
+[debug] [2024-03-25T19:17:32.986Z] Validating nodejs source
+[debug] [2024-03-25T19:17:43.107Z] checkFunctionsSDKVersion was unable to fetch information from NPM Error: spawnSync C:\Windows\system32\cmd.exe ETIMEDOUT
+    at Object.spawnSync (node:internal/child_process:1124:20)
+    at Object.spawnSync (node:child_process:876:24)
+    at Function.spawnSync [as sync] (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\index.js:26:23)
+    at Object.getLatestSDKVersion (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:54:25)
+    at Object.checkFunctionsSDKVersion (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\versioning.js:74:32)
+    at Delegate.validate (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\runtimes\node\index.js:84:20)
+    at loadCodebases (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:291:31)
+    at async prepare (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\prepare.js:56:24)
+    at async chain (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:38:9)
+    at async deploy (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:95:5)
+[debug] [2024-03-25T19:17:43.114Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@firebase/firestore": "^4.5.0",
+    "cors": "^2.8.5",
+    "firebase": "^10.9.0",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "stripe": "^14.21.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-03-25T19:17:43.116Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-03-25T19:17:43.125Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-03-25T19:17:43.170Z] Found firebase-functions binary at 'C:\Users\USER\Desktop\ReactLearn\ecommerce-app\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8393
+
+[debug] [2024-03-25T19:18:08.984Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
