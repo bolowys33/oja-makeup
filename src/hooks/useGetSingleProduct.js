@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 
-const BASE_URL = 'http://makeup-api.herokuapp.com/api/v1/products'
+const BASE_URL = 'https://makeup-api.herokuapp.com/api/v1/products'
 function useGetSingleProduct() {
     const [singleProduct, setSingleProduct] = useState(null)
     const [isLoading, setIsLoading] = useState(false)

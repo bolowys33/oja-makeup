@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useFilterState } from "../states/filterContext";
 import { setProducts} from "../states/actionCreators";
 
-const BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products";
+const BASE_URL = "https://makeup-api.herokuapp.com/api/v1/products";
 
 function useGetProducts() {
     const [isLoading, setIsLoading] = useState(false);

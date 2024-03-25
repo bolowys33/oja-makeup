@@ -96,10 +96,10 @@ const Header = () => {
                     />
                     <div className="flex text-darkooo cursor-pointer">
                         <div
-                            className="text-sm mr-6 lowercase"
+                            className="text-sm mr-1 md:mr-6 lowercase"
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
-                            {user ? user.firstName : "my account"}
+                            {user ? user.firstName : "account"}
                             <ArrowDropDown />
                             {showSignInBox && (
                                 <div className="z-[10000] absolute bg-[#333237aa] p-4 items-center rounded">

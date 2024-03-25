@@ -39,12 +39,8 @@ const createCheckoutSession = functions.https.onRequest(async (req, res) => {
             const session = await stripeClient.checkout.sessions.create({
                 line_items: lineItems,
                 mode: "payment",
-                success_url: `${req.protocol}://${req.get(
-                    "host"
-                )}/orders/success`,
-                cancel_url: `${req.protocol}://${req.get(
-                    "host"
-                )}/orders/failed`,
+                success_url: "https://oja-makeup.vercel.app/success",
+                cancel_url: "https://oja-makeup.vercel.app/failed",
                 shipping_address_collection: {
                     allowed_countries: ["NG"],
                 },
