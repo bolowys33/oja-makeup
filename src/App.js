@@ -41,8 +41,8 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/login" element={<SignIn />} />
-                    <Route path="/orders/success" element={<Success />} />
-                    <Route path="/orders/failed" element={<Cancel />} />
+                    <Route path="/success" element={<Success />} />
+                    <Route path="/failed" element={<Cancel />} />
                     <Route
                         path="/forgot-password"
                         element={<ForgotPassword />}
