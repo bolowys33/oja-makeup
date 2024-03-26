@@ -7,7 +7,7 @@ import ProductDesc from "./pages/ProductDesc";
 import Products from "./pages/Products";
 import { Provider } from "react-redux";
 import store, { persistor } from "./redux/cartStore";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
 import Cart from "./pages/Cart";
