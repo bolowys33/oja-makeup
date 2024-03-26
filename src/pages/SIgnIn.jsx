@@ -17,7 +17,7 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
@@ -25,7 +25,8 @@ import { getErrorMessage } from "../constants/error";
 import { toast } from "react-toastify";
 
 const SignIn = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const auth = getAuth(app);
     const firestore = getFirestore(app);
@@ -50,14 +51,24 @@ const SignIn = () => {
             setError(null)
 
             await setPersistence(auth, browserSessionPersistence)
-            await signInWithEmailAndPassword(
+            const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
             
-            navigate(-1)
-            toast.success(`Logged in successfully`)
+            const user = userCredential.user;
+            if (user.emailVerified) {
+                if (location.state?.from === "/register") {
+                    navigate("/");
+                } else {
+                    navigate(-1);
+                }
+                toast.success(`Logged in successfully`)
+            } else {
+                setError("Please verify your email before signing in.")
+            }
+            
             setIsLoading(false);
         } catch (error) {
             setPassword("");
