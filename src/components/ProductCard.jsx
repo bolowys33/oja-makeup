@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
     return (
         <div
             title={product.name}
-            className="flex flex-col justify-between align-middle rounded-md mb-6 mr-6 px-6 py-6 transform hover:scale-105 hover:shadow-xl transition delay-75 duration-300 ease-in-out">
+            className="flex flex-col justify-between align-middle rounded-md mb-6 md:mr-6 px-6 py-6 transform hover:scale-105 hover:shadow-xl transition delay-75 duration-300 ease-in-out">
             <div
                 onClick={handleClick}
                 className="flex flex-col justify-center flex-1 mb-6 cursor-pointer">
