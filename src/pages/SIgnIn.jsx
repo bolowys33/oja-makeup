@@ -7,6 +7,7 @@ import {
     setPersistence,
     signInWithEmailAndPassword,
     signInWithPopup,
+    sendEmailVerification,
 } from "firebase/auth";
 import {
     Box,
@@ -34,9 +35,9 @@ const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+
     const handleMouseDownPassword = (e) => {
         e.preventDefault();
     };
@@ -46,17 +47,17 @@ const SignIn = () => {
     const handleSignUpWithEmail = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        
-        try {
-            setError(null)
 
-            await setPersistence(auth, browserSessionPersistence)
+        try {
+            setError(null);
+
+            await setPersistence(auth, browserSessionPersistence);
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
-            
+
             const user = userCredential.user;
             if (user.emailVerified) {
                 if (location.state?.from === "/register") {
@@ -64,11 +65,11 @@ const SignIn = () => {
                 } else {
                     navigate(-1);
                 }
-                toast.success(`Logged in successfully`)
+                toast.success(`Logged in successfully`);
             } else {
-                setError("Please verify your email before signing in.")
+                setError("Please verify your email before signing in.");
             }
-            
+
             setIsLoading(false);
         } catch (error) {
             setPassword("");
@@ -80,7 +81,7 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         try {
-            await setPersistence(auth, browserSessionPersistence)
+            await setPersistence(auth, browserSessionPersistence);
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
@@ -95,7 +96,14 @@ const SignIn = () => {
         }
     };
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const handleResendVerificationEmail = async () => {
+        try {
+            await sendEmailVerification(auth.currentUser);
+            toast.success("Verification email has been sent.");
+        } catch (error) {
+            setError("An error occurred while sending the verification email.");
+        }
+    };
 
     return (
         <div className="mt-16 md:mt-14 py-6 h-screen">
@@ -160,16 +168,26 @@ const SignIn = () => {
                             {isLoading ? "Loading" : "Sign-in"}
                         </button>
                         <p className="text-center mt-2">
-                            <Link to="/forgot-password" className="text-amber-500">
+                            <Link
+                                to="/forgot-password"
+                                className="text-amber-500">
                                 Forgot password?
                             </Link>
                         </p>
                         <p className="text-center py-4">
-                           Don't have an account?{" "}
+                            Don't have an account?{" "}
                             <Link to="/register" className="text-amber-500">
                                 Sign up
                             </Link>
                         </p>
+                        {error ===
+                            "Please verify your email before signing in." && (
+                            <button
+                                onClick={handleResendVerificationEmail}
+                                className="self-center flex items-center justify-center mb-2 gap-2 text-center font-bold border rounded-md hover:outline outline-2 outline-dark-yellow py-3 w-3/4">
+                                Resend Verification Email
+                            </button>
+                        )}
                         <button
                             onClick={handleGoogleSignIn}
                             className="self-center flex items-center justify-center gap-2 text-center font-bold border rounded-md hover:outline outline-2 outline-dark-yellow py-3 w-3/4">
