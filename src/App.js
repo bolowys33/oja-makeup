@@ -29,6 +29,8 @@ function App() {
                     <Header />
                 </div>
                 <ToastContainer
+                autoClose={3000}
+                    limit={1}
                     style={{
                         top: "60px",
                     }}

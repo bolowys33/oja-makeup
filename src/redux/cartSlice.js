@@ -7,6 +7,25 @@ const initialState = {
     items: [],
 };
 
+let toastId = null;
+
+const showToast = (message, type = "default") => {
+    if (toastId) {
+        toast.dismiss(toastId);
+    }
+
+    switch (type) {
+        case "success":
+            toastId = toast.success(message);
+            break;
+        case "info":
+            toastId = toast.info(message);
+            break;
+        default:
+            toastId = toast(message);
+    }
+};
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
@@ -17,10 +36,15 @@ const cartSlice = createSlice({
             );
             if (!item) {
                 state.items.push({ ...action.payload, quantity: 1 });
-                toast.success(`${action.payload.name} added to the cart!`);
+                showToast(
+                    `${action.payload.name} added to the cart!`,
+                    "success"
+                );
+                // toast.success(`${action.payload.name} added to the cart!`);
                 return;
             }
-            toast.info(`${item.name} is already in cart!`);
+            // toast.info(`${item.name} is already in cart!`);
+            showToast(`${item.name} is already in cart!`, "info");
         },
         itemRemoved(state, action) {
             state.items = state.items.filter(
