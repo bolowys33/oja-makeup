@@ -29,6 +29,7 @@ function App() {
                     <Header />
                 </div>
                 <ToastContainer
+                    limit={1}
                     style={{
                         top: "60px",
                     }}
