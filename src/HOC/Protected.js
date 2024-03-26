@@ -8,7 +8,7 @@ const Protected = ({ children }) => {
   useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (!user) {
+      if (!user || !user.emailVerified) {
         navigate(`/login`)
       }
     });
