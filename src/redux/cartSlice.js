@@ -35,15 +35,13 @@ const cartSlice = createSlice({
                 (item) => item.id === action.payload.id
             );
             if (!item) {
-                state.items.push({ ...action.payload, quantity: 1 });
+                state.items.push(action.payload);
                 showToast(
                     `${action.payload.name} added to the cart!`,
                     "success"
                 );
-                // toast.success(`${action.payload.name} added to the cart!`);
                 return;
             }
-            // toast.info(`${item.name} is already in cart!`);
             showToast(`${item.name} is already in cart!`, "info");
         },
         itemRemoved(state, action) {

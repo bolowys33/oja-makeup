@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import app from "../firebase/auth.mjs";
 import { loadStripe } from "@stripe/stripe-js";
 import { getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -135,7 +134,7 @@ const Summary = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description">
                 <DialogTitle id="alert-dialog-title">
-                    {"Are you sure you want to checkout as guest?"}
+                    {"You are not signed in and won't be able to track your orders. Are you sure you want to checkout as guest?"}
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleCancel}>Cancel</Button>
