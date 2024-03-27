@@ -135,7 +135,7 @@ const Summary = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description">
                 <DialogTitle id="alert-dialog-title">
-                    {"Are you sure you want to checkout as guest?"}
+                    {"You are not signed in and won't be able to track your orders. Are you sure you want to checkout as guest?"}
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleCancel}>Cancel</Button>
