@@ -20,6 +20,8 @@ const createCheckoutSession = functions.https.onRequest(async (req, res) => {
         try {
             const { items, userId, totalAmount } = req.body;
 
+            const actualUserId = userId || "guest";
+
             // Create line items from the cart items
             const lineItems = items.map((item) => ({
                 price_data: {
@@ -50,7 +52,7 @@ const createCheckoutSession = functions.https.onRequest(async (req, res) => {
             // Store the order details in Firestore
             const orderCollectionRef = db.collection("orders");
             const order = await orderCollectionRef.add({
-                userId,
+                userId: actualUserId,
                 items,
                 status: "pending",
                 totalAmount,
