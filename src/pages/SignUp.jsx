@@ -18,7 +18,7 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
@@ -26,6 +26,8 @@ import { getErrorMessage } from "../constants/error";
 import Notification from "../components/Notification";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+
     const auth = getAuth(app);
     const db = getFirestore(app);
 
@@ -97,6 +99,8 @@ const SignUp = () => {
                 lastName: user.displayName.split(" ")[1],
                 email: user.email,
             });
+
+            navigate(-1);
         } catch (error) {
             setError(getErrorMessage(error.code));
         }
