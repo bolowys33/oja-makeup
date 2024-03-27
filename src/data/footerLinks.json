@@ -33,58 +33,63 @@
         ]
     },
     {
-        "title": "skincare",
+        "title": "skin",
         "links": [
             {
-                "name": "Makeup",
-                "path": "/products"
+                "name": "Foundation",
+                "path": "/product/foundation"
             },
             {
-                "name": "Skincare",
-                "path": "/products"
+                "name": "Blush",
+                "path": "/product/blush"
             },
             {
-                "name": "Fragrance",
-                "path": "/products"
+                "name": "Bronzer",
+                "path": "/product/bronzer"
             }
         ]
     },
     {
-        "title": "makeup",
+        "title": "eyes",
         "links": [
             {
-                "name": "Base",
-                "path": "/products"
+                "name": "Eyebrow",
+                "path": "/product/eyebrow"
             },
             {
-                "name": "Contour",
-                "path": "/products"
+                "name": "Eyeliner",
+                "path": "/product/eyeliner"
             },
             {
-                "name": "Eye makeup",
-                "path": "/products"
+                "name": "Eyeshadow",
+                "path": "/product/eyeshadow"
             },
             {
-                "name": "Lips",
-                "path": "/products"
+                "name": "Mascara",
+                "path": "/product/mascara"
             }
         ]
     },
     {
-        "title": "luxury",
+        "title": "lips",
         "links": [
             {
-                "name": "Makeup",
-                "path": "/products"
+                "name": "Lipstick",
+                "path": "/product/lipstick"
             },
             {
-                "name": "Skincare",
-                "path": "/products"
-            },
+                "name": "Lip liner",
+                "path": "/product/lip liner"
+            }   
+        ]
+    },
+    {
+        "title": "nails",
+        "links": [
             {
-                "name": "Fragrance",
-                "path": "/products"
-            }
+                "name": "Nail Polish",
+                "path": "/product/nail polish"
+            }  
         ]
     }
 ]

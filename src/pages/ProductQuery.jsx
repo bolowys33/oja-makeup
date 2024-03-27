@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useProductQuery from "../hooks/useProductQuery";
+import { ScaleLoader } from "react-spinners";
+import ProductCard from "../components/ProductCard";
+import { useParams } from "react-router-dom";
 
 const ProductQuery = () => {
+    const { queryValue } = useParams();
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    
     const { isLoading, products, getQueriedProducts } = useProductQuery();
 
-    const [currentPage, setCurrentPage] = useState(1);
+    useEffect(() => {
+        getQueriedProducts(queryValue)
+    }, [])
+
     let itemsPerPage = 12;
 
-    const totalPages = Math.ceil(products.length / itemsPerPage);
+    const totalPages = Math.ceil(products?.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -42,10 +52,10 @@ const ProductQuery = () => {
                 </div>
             ) : (
                 <div>
-                    <h3 className="text-2xl font-bold text-center text-dark-yellow">
-                        Products
+                    <h3 className="text-2xl font-bold text-center mb-2 text-dark-yellow">
+                        {queryValue.charAt(0).toUpperCase() + queryValue.slice(1)}
                     </h3>
-                    <div className="flex flex-wrap justify-center mx-auto md:h-[580px] overflow-scroll overflow-x-hidden">
+                    <div className="flex flex-wrap justify-center w-[90%] mx-auto ">
                         {currentProducts.map((product) => (
                             <ProductCard product={product} key={product.id} />
                         ))}
