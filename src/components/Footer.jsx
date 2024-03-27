@@ -4,7 +4,7 @@ import links from "../data/footerLinks.json";
 
 import BrandLink from "./BrandLink";
 
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Facebook, Instagram, X } from "@mui/icons-material";
 
 const Footer = () => (
     <footer className="bg-darkooo text-light flex flex-col md:flex-row justify-between p-8">
@@ -31,21 +31,21 @@ const Footer = () => (
 
         <div className="text-yellow space-x-4 md:space-x-0 order-2 md:order-3 flex md:block mb-6 md:mb-0">
             <a
-                href="https://facebook.com"
+                href="https://facebook.com/bolodeoku.taiwo.16/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-light-grey block mb-4">
                 <Facebook />
             </a>
             <a
-                href="https://twitter.com"
+                href="http://x.com/-olubodun"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-light-grey block mb-4">
-                <Twitter />
+                <X />
             </a>
             <a
-                href="https://instagram.com"
+                href="https://instagram.com/_olubodun"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-light-grey block mb-4">

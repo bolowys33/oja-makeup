@@ -19,6 +19,7 @@ import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
+import ProductQuery from "./pages/ProductQuery";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/product/:queryValue" element={<ProductQuery />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDesc />} />
                     <Route path="/cart" element={<Cart />} />

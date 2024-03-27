@@ -3,105 +3,74 @@
         "title": "about",
         "links": [
             {
-                "name": "About Welly",
+                "name": "About Oja",
                 "path": "/about"
             },
+            
             {
-                "name": "Careers",
-                "path": "/"
-            },
-            {
-                "name": "Social Media",
-                "path": "/"
-            },
-            {
-                "name": "Affiliates",
-                "path": "/"
-            },
-            {
-                "name": "Supply Chain",
-                "path": "/"
-            },
-            {
-                "name": "Sitemap",
-                "path": "/"
-            },
-            {
-                "name": "Global Sites",
-                "path": "/"
+                "name": "Git Repo",
+                "path": "https://github.com/bolowys33/oja-makeup"
             }
         ]
     },
     {
-        "title": "skincare",
+        "title": "skin",
         "links": [
             {
-                "name": "Makeup",
-                "path": "/"
+                "name": "Foundation",
+                "path": "/product/foundation"
             },
             {
-                "name": "Skincare",
-                "path": "/"
+                "name": "Blush",
+                "path": "/product/blush"
             },
             {
-                "name": "Fragrance",
-                "path": "/"
+                "name": "Bronzer",
+                "path": "/product/bronzer"
             }
         ]
     },
     {
-        "title": "makeup",
+        "title": "eyes",
         "links": [
             {
-                "name": "Base",
-                "path": "/"
+                "name": "Eyebrow",
+                "path": "/product/eyebrow"
             },
             {
-                "name": "Contour",
-                "path": "/"
+                "name": "Eyeliner",
+                "path": "/product/eyeliner"
             },
             {
-                "name": "Eye makeup",
-                "path": "/"
+                "name": "Eyeshadow",
+                "path": "/product/eyeshadow"
             },
             {
-                "name": "Lips",
-                "path": "/"
+                "name": "Mascara",
+                "path": "/product/mascara"
             }
         ]
     },
     {
-        "title": "supplements",
+        "title": "lips",
         "links": [
             {
-                "name": "Hair and nails",
-                "path": "/"
+                "name": "Lipstick",
+                "path": "/product/lipstick"
             },
             {
-                "name": "Vitamins",
-                "path": "/"
-            },
-            {
-                "name": "Nutrients",
-                "path": "/"
-            }
+                "name": "Lip liner",
+                "path": "/product/lip liner"
+            }   
         ]
     },
     {
-        "title": "luxury",
+        "title": "nails",
         "links": [
             {
-                "name": "Makeup",
-                "path": "/"
-            },
-            {
-                "name": "Skincare",
-                "path": "/"
-            },
-            {
-                "name": "Fragrance",
-                "path": "/"
-            }
+                "name": "Nail Polish",
+                "path": "/product/nail polish"
+            }  
         ]
     }
 ]
