@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import app from "../firebase/auth.mjs";
 import { loadStripe } from "@stripe/stripe-js";
 import { getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import axios from "axios";
