@@ -18,14 +18,17 @@ import {
     InputLabel,
     OutlinedInput,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import InputField from "../components/TextField";
 import { doc, getFirestore, setDoc } from "@firebase/firestore";
 import { getErrorMessage } from "../constants/error";
 import Notification from "../components/Notification";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+
     const auth = getAuth(app);
     const db = getFirestore(app);
 
@@ -97,6 +100,9 @@ const SignUp = () => {
                 lastName: user.displayName.split(" ")[1],
                 email: user.email,
             });
+
+            toast.success(`Logged in successfully`)
+            navigate(-1);
         } catch (error) {
             setError(getErrorMessage(error.code));
         }
@@ -227,7 +233,10 @@ const SignUp = () => {
                         </button>
                         <p className="text-center py-4">
                             Already have an account?{" "}
-                            <Link to="/login" className="text-amber-500">
+                            <Link
+                                to="/login"
+                                state={{ from: "/register" }}
+                                className="text-amber-500">
                                 Sign in
                             </Link>
                         </p>

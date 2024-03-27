@@ -91,6 +91,13 @@ const SignIn = () => {
                 lastName: user.displayName.split(" ")[1],
                 email: user.email,
             });
+
+            if (location.state?.from === "/register") {
+                navigate("/");
+            } else {
+                navigate(-1);
+            }
+            toast.success(`Logged in successfully`);
         } catch (error) {
             setError(getErrorMessage(error.code));
         }
