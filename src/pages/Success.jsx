@@ -3,10 +3,15 @@ import { useNavigate } from "react-router-dom";
 import success from "../assets/success.gif";
 import { useDispatch } from "react-redux";
 import { clearAll } from "../redux/cartSlice";
+import { getAuth } from "firebase/auth";
+import app from "../firebase/auth.mjs";
 
 const Success = () => {
+    const auth = getAuth(app)
+
     const navigate = useNavigate();
     const [countdown, setCountdown] = useState(10);
+    const [user, setUser] = useState(null);
 
     const dispatch = useDispatch();
 
@@ -15,13 +20,27 @@ const Success = () => {
     }, []);
 
     useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
+                setUser(user)
+            }
+        });
+
+        return () => unsubscribe();
+    });
+
+    useEffect(() => {
         const timer = setInterval(() => {
             setCountdown((prevCountdown) => prevCountdown - 1);
         }, 1000);
 
         if (countdown === 0) {
             clearInterval(timer);
-            navigate("/orders");
+            if(!user){
+                navigate('/')
+                return
+            }
+            navigate('/orders')
         }
 
         return () => clearInterval(timer);
@@ -44,8 +63,8 @@ const Success = () => {
                         Your order is successful.
                     </h1>
                     <p className="text-gray-400 text-lg">
-                        You will be redirected to your orders page in{" "}
-                        {countdown} seconds.
+                        {`You will be redirected to your ${user ? 'orders' : 'home'} page in
+                        ${countdown} seconds.`}
                     </p>
                 </div>
             </div>
