@@ -9,8 +9,6 @@ import axios from "axios";
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 
 const Summary = () => {
-    const navigate = useNavigate();
-
     const [openDialog, setOpenDialog] = useState(false);
     const [isloading, setIsLoading] = useState(false);
 
@@ -75,6 +73,7 @@ const Summary = () => {
     };
 
     const handleGuestCheckout = async () => {
+        setOpenDialog(false);
         setIsLoading(true);
         try {
             // Make an HTTP POST request to the Cloud Function endpoint using Axios
@@ -98,11 +97,9 @@ const Summary = () => {
                 toast.error("Error redirecting to checkout");
             }
 
-            setOpenDialog(false);
         } catch (error) {
             console.error("Error handling checkout:", error);
             toast.error("Error handling checkout");
-            setOpenDialog(false);
         }
     };
 
