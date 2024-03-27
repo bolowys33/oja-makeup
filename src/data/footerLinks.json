@@ -37,15 +37,15 @@
         "links": [
             {
                 "name": "Makeup",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Skincare",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Fragrance",
-                "path": "/"
+                "path": "/products"
             }
         ]
     },
@@ -54,36 +54,19 @@
         "links": [
             {
                 "name": "Base",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Contour",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Eye makeup",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Lips",
-                "path": "/"
-            }
-        ]
-    },
-    {
-        "title": "supplements",
-        "links": [
-            {
-                "name": "Hair and nails",
-                "path": "/"
-            },
-            {
-                "name": "Vitamins",
-                "path": "/"
-            },
-            {
-                "name": "Nutrients",
-                "path": "/"
+                "path": "/products"
             }
         ]
     },
@@ -92,15 +75,15 @@
         "links": [
             {
                 "name": "Makeup",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Skincare",
-                "path": "/"
+                "path": "/products"
             },
             {
                 "name": "Fragrance",
-                "path": "/"
+                "path": "/products"
             }
         ]
     }
