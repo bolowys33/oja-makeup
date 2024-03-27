@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import success from '../assets/success.gif';
+import success from "../assets/success.gif";
+import { useDispatch } from "react-redux";
+import { clearAll } from "../redux/cartSlice";
 
 const Success = () => {
     const navigate = useNavigate();
-    const [countdown, setCountdown] = useState(10); 
+    const [countdown, setCountdown] = useState(10);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(clearAll());
+    }, []);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -13,7 +21,7 @@ const Success = () => {
 
         if (countdown === 0) {
             clearInterval(timer);
-            navigate('/orders'); 
+            navigate("/orders");
         }
 
         return () => clearInterval(timer);
@@ -22,8 +30,7 @@ const Success = () => {
     return (
         <div className="w-full h-screen flex justify-center items-center">
             <div className="inset-0 flex items-center justify-center bg-slate-100">
-                <div
-                    className="bg-white p-6 rounded-lg text-center shadow-lg">
+                <div className="bg-white p-6 rounded-lg text-center shadow-lg">
                     <img
                         src={success}
                         alt="Success"
@@ -37,7 +44,8 @@ const Success = () => {
                         Your order is successful.
                     </h1>
                     <p className="text-gray-400 text-lg">
-                        You will be redirected to your orders page in {countdown} seconds.
+                        You will be redirected to your orders page in{" "}
+                        {countdown} seconds.
                     </p>
                 </div>
             </div>
