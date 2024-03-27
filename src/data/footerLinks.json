@@ -3,32 +3,13 @@
         "title": "about",
         "links": [
             {
-                "name": "About Welly",
+                "name": "About Oja",
                 "path": "/about"
             },
+            
             {
-                "name": "Careers",
-                "path": "/"
-            },
-            {
-                "name": "Social Media",
-                "path": "/"
-            },
-            {
-                "name": "Affiliates",
-                "path": "/"
-            },
-            {
-                "name": "Supply Chain",
-                "path": "/"
-            },
-            {
-                "name": "Sitemap",
-                "path": "/"
-            },
-            {
-                "name": "Global Sites",
-                "path": "/"
+                "name": "Git Repo",
+                "path": "https://github.com/bolowys33/oja-makeup"
             }
         ]
     },
