@@ -4,7 +4,7 @@ import links from "../data/footerLinks.json";
 
 import BrandLink from "./BrandLink";
 
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Facebook, Instagram, X } from "@mui/icons-material";
 
 const Footer = () => (
     <footer className="bg-darkooo text-light flex flex-col md:flex-row justify-between p-8">
@@ -42,7 +42,7 @@ const Footer = () => (
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-light-grey block mb-4">
-                <Twitter />
+                <X />
             </a>
             <a
                 href="https://instagram.com/_olubodun"
