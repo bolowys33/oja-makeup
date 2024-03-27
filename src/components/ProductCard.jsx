@@ -21,6 +21,7 @@ const ProductCard = ({ product }) => {
         name: product.name,
         image: `https:${product.api_featured_image}`,
         price,
+        quantity: 1,
     };
 
     const handleAddToCart = () => {
