@@ -44,7 +44,7 @@ const ProductPreview = ({ product }) => {
 
                 <div className="flex my-5 justify-between items-center">
                     <ProductPrice price={price} isLarge />
-                    <div className="flex justify-between items-center w-2/3">
+                    <div className="flex justify-between items-center w-[68%] md:w-2/3">
                         <ProductButton
                             quantity={quantity}
                             setQuantity={setQuantity}
