@@ -12,7 +12,7 @@ const InputField = ({label, value, onchange , type}) => {
             id="outlined-basic"
             label={label}
             type={type}
-            autoFocus
+            autoFocus={false}
             value={value}
             onChange={onchange}
             className="mb-4 text-gray-700 rounded"
