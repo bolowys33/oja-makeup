@@ -1,6 +1,6 @@
 [
     {
-        "title": "about",
+        "title": "About",
         "links": [
             {
                 "name": "About Oja",
@@ -14,7 +14,7 @@
         ]
     },
     {
-        "title": "skin",
+        "title": "Skin",
         "links": [
             {
                 "name": "Foundation",
@@ -31,7 +31,7 @@
         ]
     },
     {
-        "title": "eyes",
+        "title": "Eyes",
         "links": [
             {
                 "name": "Eyebrow",
@@ -52,7 +52,7 @@
         ]
     },
     {
-        "title": "lips",
+        "title": "Lips",
         "links": [
             {
                 "name": "Lipstick",
@@ -65,7 +65,7 @@
         ]
     },
     {
-        "title": "nails",
+        "title": "Nails",
         "links": [
             {
                 "name": "Nail Polish",
