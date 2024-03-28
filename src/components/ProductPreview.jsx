@@ -44,11 +44,12 @@ const ProductPreview = ({ product }) => {
 
                 <div className="flex my-5 justify-between items-center">
                     <ProductPrice price={price} isLarge />
-                    <div className="flex justify-between items-center w-[68%] md:w-2/3">
-                        <ProductButton
+                    <ProductButton
                             quantity={quantity}
                             setQuantity={setQuantity}
                         />
+                    <div className="flex justify-between items-center">
+                        
                         <button
                             className="inline-block rounded-full text-xs md:text-sm font-bold font-krona bg-yellow hover:bg-dark-yellow py-2 md:py-3 px-2 md:px-6"
                             onClick={handleAddToCart}>
