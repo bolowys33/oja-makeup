@@ -78,7 +78,9 @@ const SignIn = () => {
         }
     };
 
-    const handleGoogleSignIn = async () => {
+    const handleGoogleSignIn = async (e) => {
+        e.preventDefault();
+
         const provider = new GoogleAuthProvider();
         try {
             await setPersistence(auth, browserSessionPersistence);
