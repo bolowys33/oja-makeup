@@ -20,7 +20,7 @@ const ProductButton = ({ quantity, setQuantity }) => {
                 } text-center uppercase rounded-md shadow-lg hover:bg-dark-yellow`}>
                 -
             </button>
-            <span className="mx-3 font-krona">{quantity}</span>
+            <span className="mx-1 md:mx-3 font-krona">{quantity}</span>
             <button
                 onClick={handleIncrease}
                 className="h-8 w-8 p-1 font-extrabold bg-yellow text-darkooo text-center uppercase rounded-md shadow-lg hover:bg-dark-yellow">
